@@ -21,9 +21,13 @@ namespace OtomatikSiparisGirisi
         private void SiparisGirisi_Load(object sender, EventArgs e)
         {
             baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=MikroDB_V16_ERMEDAS;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            dataGridView3.ColumnCount = 1;
+            dataGridView3.ColumnCount = 6;
             dataGridView3.Columns[0].Name = "sto_kod";
-
+            dataGridView3.Columns[1].Name = "sip. giriþTarihi";
+            dataGridView3.Columns[2].Name = "sip. bitiþTarihi";
+            dataGridView3.Columns[3].Name = "1.SRM Merkezi";
+            dataGridView3.Columns[4].Name = "miktar";
+            dataGridView3.Columns[5].Name = "tutar";
         }
 
 
@@ -123,6 +127,8 @@ namespace OtomatikSiparisGirisi
         string sto_kod;
         private void button4_Click(object sender, EventArgs e)
         {
+            string SrmMrkz1 = "120.01.0754";
+
             // DataGridView1 ve DataGridView2'deki verileri yükleyin
             // DataGridView1'deki "barkod" sütunu DataGridView2'deki "barkod" sütunuyla eþleþmelidir
             // DataGridView2'deki "stok kodu" sütunu DataGridView3'deki "stok kodu" sütunuyla eþleþmelidir
@@ -138,8 +144,10 @@ namespace OtomatikSiparisGirisi
                         // Eþleþen bir barkod bulundu
                         // DataGridView2'deki stok kodunu alýn ve DataGridView3'e yazýn
                         string stockCode = Convert.ToString(dataGridView2.Rows[j].Cells[0].Value);
+                        string miktar = Convert.ToString(dataGridView1.Rows[i].Cells[11].Value);
+                        string tutar= Convert.ToString(dataGridView1.Rows[i].Cells[15].Value);
+                        dataGridView3.Rows.Add(stockCode, DateTime.Now.ToString(), dateTimePicker1.Value.ToString(),SrmMrkz1,miktar,tutar);
 
-                        dataGridView3.Rows.Add(stockCode);
                         break;
                     }
                 }

@@ -37,6 +37,7 @@
             dataGridView2 = new DataGridView();
             dataGridView3 = new DataGridView();
             button4 = new Button();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -128,11 +129,19 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(677, 15);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 25);
+            dateTimePicker1.TabIndex = 9;
+            // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 1061);
+            Controls.Add(dateTimePicker1);
             Controls.Add(button4);
             Controls.Add(dataGridView3);
             Controls.Add(dataGridView2);
@@ -166,5 +175,6 @@
         private DataGridView dataGridView2;
         private DataGridView dataGridView3;
         private Button button4;
+        private DateTimePicker dateTimePicker1;
     }
 }
