@@ -38,6 +38,11 @@
             dataGridView3 = new DataGridView();
             button4 = new Button();
             dateTimePicker1 = new DateTimePicker();
+            label2 = new Label();
+            textBox2 = new TextBox();
+            label3 = new Label();
+            label4 = new Label();
+            textBox3 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -55,6 +60,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 162);
@@ -101,22 +107,25 @@
             // 
             // dataGridView2
             // 
+            dataGridView2.AllowUserToAddRows = false;
             dataGridView2.BackgroundColor = Color.White;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Location = new Point(12, 566);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(267, 483);
+            dataGridView2.Size = new Size(267, 399);
             dataGridView2.TabIndex = 6;
             // 
             // dataGridView3
             // 
+            dataGridView3.AllowUserToAddRows = false;
             dataGridView3.BackgroundColor = Color.White;
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView3.Location = new Point(604, 566);
             dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersVisible = false;
             dataGridView3.RowTemplate.Height = 25;
-            dataGridView3.Size = new Size(704, 483);
+            dataGridView3.Size = new Size(1308, 399);
             dataGridView3.TabIndex = 7;
             // 
             // button4
@@ -131,16 +140,63 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(677, 15);
+            dateTimePicker1.Location = new Point(933, 12);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 25);
             dateTimePicker1.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(833, 46);
+            label2.Name = "label2";
+            label2.Size = new Size(94, 17);
+            label2.TabIndex = 11;
+            label2.Text = "Evrak No Seri:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(933, 43);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(51, 25);
+            textBox2.TabIndex = 10;
+            textBox2.Text = "SPX";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(804, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(123, 17);
+            label3.TabIndex = 12;
+            label3.Text = "Sipariş Bitiş Tarihi:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(997, 46);
+            label4.Name = "label4";
+            label4.Size = new Size(121, 17);
+            label4.TabIndex = 14;
+            label4.Text = "Evrak No Seri Sıra:";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(1124, 43);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(51, 25);
+            textBox3.TabIndex = 13;
             // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1061);
+            ClientSize = new Size(1924, 985);
+            Controls.Add(label4);
+            Controls.Add(textBox3);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(textBox2);
             Controls.Add(dateTimePicker1);
             Controls.Add(button4);
             Controls.Add(dataGridView3);
@@ -176,5 +232,10 @@
         private DataGridView dataGridView3;
         private Button button4;
         private DateTimePicker dateTimePicker1;
+        private Label label2;
+        private TextBox textBox2;
+        private Label label3;
+        private Label label4;
+        private TextBox textBox3;
     }
 }

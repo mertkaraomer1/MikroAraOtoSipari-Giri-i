@@ -21,13 +21,19 @@ namespace OtomatikSiparisGirisi
         private void SiparisGirisi_Load(object sender, EventArgs e)
         {
             baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=MikroDB_V16_ERMEDAS;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            dataGridView3.ColumnCount = 6;
-            dataGridView3.Columns[0].Name = "sto_kod";
-            dataGridView3.Columns[1].Name = "sip. giriþTarihi";
-            dataGridView3.Columns[2].Name = "sip. bitiþTarihi";
-            dataGridView3.Columns[3].Name = "1.SRM Merkezi";
-            dataGridView3.Columns[4].Name = "miktar";
-            dataGridView3.Columns[5].Name = "tutar";
+            dataGridView3.ColumnCount = 12;
+            dataGridView3.Columns[0].Name = "GUÝD";
+            dataGridView3.Columns[1].Name = "sto_kod";
+            dataGridView3.Columns[2].Name = "sip. giriþTarihi";
+            dataGridView3.Columns[3].Name = "sip. bitiþTarihi";
+            dataGridView3.Columns[4].Name = "1.SRM Merkezi";
+            dataGridView3.Columns[5].Name = "miktar";
+            dataGridView3.Columns[6].Name = "tutar";
+            dataGridView3.Columns[7].Name = "Toplam tutar";
+            dataGridView3.Columns[8].Name = "evrak no";
+            dataGridView3.Columns[9].Name = "evrak no sýra";
+            dataGridView3.Columns[10].Name = "sipariþ satýr no";
+            dataGridView3.Columns[11].Name = "açýklama";
         }
 
 
@@ -127,16 +133,35 @@ namespace OtomatikSiparisGirisi
         string sto_kod;
         private void button4_Click(object sender, EventArgs e)
         {
-            string SrmMrkz1 = "120.01.0754";
 
+
+
+
+
+            string SrmMrkz1 = "120.01.0754";
+            string EvrakNo = textBox2.Text.ToString();
             // DataGridView1 ve DataGridView2'deki verileri yükleyin
             // DataGridView1'deki "barkod" sütunu DataGridView2'deki "barkod" sütunuyla eþleþmelidir
             // DataGridView2'deki "stok kodu" sütunu DataGridView3'deki "stok kodu" sütunuyla eþleþmelidir
+            string previousValue = Convert.ToString(dataGridView1.Rows[0].Cells[3].Value); // sütundaki ilk hücrenin deðerini al
 
+            int arttýr = 0;
+            int Sýrano = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                string barcode = Convert.ToString(dataGridView1.Rows[i].Cells[8].Value);
+                string currentValue = Convert.ToString(dataGridView1.Rows[i].Cells[3].Value); // sütundaki diðer hücrelerin deðerini al
+                if (currentValue != previousValue) // deðerler farklýysa
+                {
+                    arttýr++;
+                    Sýrano = 0;
+                }
+                else if (currentValue == previousValue)
+                {
+                    Sýrano ++;
+                }
+                previousValue = currentValue; // bir sonraki hücre için önceki hücrenin deðerini sakla
 
+                string barcode = Convert.ToString(dataGridView1.Rows[i].Cells[8].Value);
                 for (int j = 0; j < dataGridView2.Rows.Count; j++)
                 {
                     if (barcode == Convert.ToString(dataGridView2.Rows[j].Cells[1].Value))
@@ -144,16 +169,36 @@ namespace OtomatikSiparisGirisi
                         // Eþleþen bir barkod bulundu
                         // DataGridView2'deki stok kodunu alýn ve DataGridView3'e yazýn
                         string stockCode = Convert.ToString(dataGridView2.Rows[j].Cells[0].Value);
-                        string miktar = Convert.ToString(dataGridView1.Rows[i].Cells[11].Value);
-                        string tutar= Convert.ToString(dataGridView1.Rows[i].Cells[15].Value);
-                        dataGridView3.Rows.Add(stockCode, DateTime.Now.ToString(), dateTimePicker1.Value.ToString(),SrmMrkz1,miktar,tutar);
 
-                        break;
+                        int miktar = Convert.ToInt32(dataGridView1.Rows[i].Cells[11].Value);
+                        int tutar = Convert.ToInt32(dataGridView1.Rows[i].Cells[15].Value);
+                        string aciklama = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value);
+                        int Toplamtutar = Convert.ToInt32(miktar * tutar);
+
+                        dataGridView3.Rows.Add(Guid.NewGuid(), stockCode, DateTime.Now.ToString(), dateTimePicker1.Value.ToString(), SrmMrkz1, miktar, tutar, Toplamtutar, EvrakNo, arttýr, Sýrano,aciklama);
+
+
+                        //for (int k = 0; k < dataGridView3.Rows.Count; k++)
+                        //{
+
+                        //    int Evraknosira = Convert.ToInt32(dataGridView3.Rows[k].Cells[9].Value); // sütundaki diðer hücrelerin deðerini al
+                        //    if (arttýr == Evraknosira) //deðerler aynýysa
+                        //    {
+                        //        Sýrano++;
+
+                        //    }
+                        //    else if (arttýr != Evraknosira)// deðerler farklýysa
+                        //    {
+                        //        Sýrano = 0;
+                        //    }
+                        //    //arttýr = Evraknosira; // bir sonraki hücre için önceki hücrenin deðerini sakla
+                        //}
+                        //break;
                     }
                 }
 
-            }
 
+            }
         }
     }
 }
