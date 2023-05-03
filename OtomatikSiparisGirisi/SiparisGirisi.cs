@@ -21,19 +21,51 @@ namespace OtomatikSiparisGirisi
         private void SiparisGirisi_Load(object sender, EventArgs e)
         {
             baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=MikroDB_V16_ERMEDAS;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            dataGridView3.ColumnCount = 12;
+            dataGridView3.ColumnCount =44;
             dataGridView3.Columns[0].Name = "GUÝD";
-            dataGridView3.Columns[1].Name = "sto_kod";
-            dataGridView3.Columns[2].Name = "sip. giriþTarihi";
-            dataGridView3.Columns[3].Name = "sip. bitiþTarihi";
+            dataGridView3.Columns[1].Name = "stok Kodu";
+            dataGridView3.Columns[2].Name = "sip. Giriþ Tarihi";
+            dataGridView3.Columns[3].Name = "sip. Güncelleme Tarihi";
             dataGridView3.Columns[4].Name = "1.SRM Merkezi";
-            dataGridView3.Columns[5].Name = "miktar";
-            dataGridView3.Columns[6].Name = "tutar";
-            dataGridView3.Columns[7].Name = "Toplam tutar";
-            dataGridView3.Columns[8].Name = "evrak no";
-            dataGridView3.Columns[9].Name = "evrak no sýra";
-            dataGridView3.Columns[10].Name = "sipariþ satýr no";
-            dataGridView3.Columns[11].Name = "açýklama";
+            dataGridView3.Columns[5].Name = "Miktar";
+            dataGridView3.Columns[6].Name = "Tutar";
+            dataGridView3.Columns[7].Name = "Toplam Tutar";
+            dataGridView3.Columns[8].Name = "Evrak No";
+            dataGridView3.Columns[9].Name = "Evrak No Sýra";
+            dataGridView3.Columns[10].Name = "Sipariþ Satýr No";
+            dataGridView3.Columns[11].Name = "sip_belgeno";
+            dataGridView3.Columns[12].Name = "Satýcý No";
+            dataGridView3.Columns[13].Name = "Açýklama";
+            dataGridView3.Columns[14].Name = "Sip_Field";
+            dataGridView3.Columns[15].Name = "sip_DBCno";
+            dataGridView3.Columns[16].Name = "sip_SpecRECno";
+            dataGridView3.Columns[17].Name = "sip_iptal";
+            dataGridView3.Columns[18].Name = "sip_hidden";
+            dataGridView3.Columns[19].Name = "sip_kilitli";
+            dataGridView3.Columns[20].Name = "sip_degisti";
+            dataGridView3.Columns[21].Name = "sip_checksum";
+            dataGridView3.Columns[22].Name = "sip_special1";
+            dataGridView3.Columns[23].Name = "sip_special2";
+            dataGridView3.Columns[24].Name = "sip_special3";
+            dataGridView3.Columns[25].Name = "sip_firmano";
+            dataGridView3.Columns[26].Name = "sip_subeno";
+            dataGridView3.Columns[27].Name = "sip_Bitiþ Tarihi";
+            dataGridView3.Columns[28].Name = "sip_Tarihi";
+            dataGridView3.Columns[29].Name = "sip_tip";
+            dataGridView3.Columns[30].Name = "sip_cins";
+            dataGridView3.Columns[31].Name = "sip_belge_tarih";
+            dataGridView3.Columns[32].Name = "sip_birim_pntr";
+            dataGridView3.Columns[33].Name = "sip_teslim_miktar";
+            dataGridView3.Columns[34].Name = "sip_iskonto_1";
+            dataGridView3.Columns[35].Name = "sip_iskonto_2";
+            dataGridView3.Columns[36].Name = "sip_iskonto_3";
+            dataGridView3.Columns[37].Name = "sip_iskonto_4";
+            dataGridView3.Columns[38].Name = "sip_iskonto_5";
+            dataGridView3.Columns[39].Name = "sip_iskonto_6";
+            dataGridView3.Columns[40].Name = "sip_masraf_1";
+            dataGridView3.Columns[41].Name = "sip_masraf_2";
+            dataGridView3.Columns[42].Name = "sip_masraf_3";
+            dataGridView3.Columns[43].Name = "sip_masraf_4";
         }
 
 
@@ -133,11 +165,34 @@ namespace OtomatikSiparisGirisi
         string sto_kod;
         private void button4_Click(object sender, EventArgs e)
         {
-
-
-
-
-
+            int sip_masraf_1 = 0;
+            int sip_masraf_2 = 0;
+            int sip_masraf_3 = 0;
+            int sip_masraf_4 = 0;
+            int sip_iskonto_1 = 0;
+            int sip_iskonto_2 = 0;
+            int sip_iskonto_3 = 0;
+            int sip_iskonto_4 = 0;
+            int sip_iskonto_5 = 0;
+            int sip_iskonto_6 = 0;
+            int sip_birim_pntr = 1;
+            string sip_belgeno = "";
+            int sip_cins = 0;
+            int sip_tip = 0;
+            int sip_firmano = 0;
+            int sip_subeno = 0;
+            string sip_special1 = "";
+            string sip_special2 = "";
+            string sip_special3 = "";
+            int sip_kilitli = 0;
+            int sip_degisti = 0;
+            int sip_checksum = 0;
+            int sip_hidden = 0;
+            int sip_iptal = 0;
+            int sip_SpecRECno = 0;
+            int sip_DBCno = 0;
+            int sipField = 21;
+            string SaticiNo = textBox3.Text.ToString();
             string SrmMrkz1 = "120.01.0754";
             string EvrakNo = textBox2.Text.ToString();
             // DataGridView1 ve DataGridView2'deki verileri yükleyin
@@ -157,7 +212,7 @@ namespace OtomatikSiparisGirisi
                 }
                 else if (currentValue == previousValue)
                 {
-                    Sýrano ++;
+                    Sýrano++;
                 }
                 previousValue = currentValue; // bir sonraki hücre için önceki hücrenin deðerini sakla
 
@@ -171,34 +226,18 @@ namespace OtomatikSiparisGirisi
                         string stockCode = Convert.ToString(dataGridView2.Rows[j].Cells[0].Value);
 
                         int miktar = Convert.ToInt32(dataGridView1.Rows[i].Cells[11].Value);
+                        int sip_teslim_miktar= Convert.ToInt32(dataGridView1.Rows[i].Cells[11].Value);
                         int tutar = Convert.ToInt32(dataGridView1.Rows[i].Cells[15].Value);
                         string aciklama = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value);
                         int Toplamtutar = Convert.ToInt32(miktar * tutar);
 
-                        dataGridView3.Rows.Add(Guid.NewGuid(), stockCode, DateTime.Now.ToString(), dateTimePicker1.Value.ToString(), SrmMrkz1, miktar, tutar, Toplamtutar, EvrakNo, arttýr, Sýrano,aciklama);
+                        dataGridView3.Rows.Add(Guid.NewGuid(), stockCode, DateTime.Now.ToString(), dateTimePicker1.Value.ToString(), SrmMrkz1, miktar, tutar, Toplamtutar, EvrakNo, arttýr, Sýrano,sip_belgeno, SaticiNo, aciklama, sipField, sip_DBCno, sip_SpecRECno, sip_iptal, sip_hidden, sip_kilitli, sip_degisti, sip_checksum, sip_special1, sip_special2, sip_special3, sip_firmano, sip_subeno,dateTimePicker2.Value.ToString(),DateTime.Now.ToString(),sip_tip,sip_cins, DateTime.Now.ToString(), sip_birim_pntr, sip_teslim_miktar,sip_iskonto_1,sip_iskonto_2,sip_iskonto_3,sip_iskonto_4,sip_iskonto_5,sip_iskonto_6,sip_masraf_1,sip_masraf_2,sip_masraf_3,sip_masraf_4);
 
-
-                        //for (int k = 0; k < dataGridView3.Rows.Count; k++)
-                        //{
-
-                        //    int Evraknosira = Convert.ToInt32(dataGridView3.Rows[k].Cells[9].Value); // sütundaki diðer hücrelerin deðerini al
-                        //    if (arttýr == Evraknosira) //deðerler aynýysa
-                        //    {
-                        //        Sýrano++;
-
-                        //    }
-                        //    else if (arttýr != Evraknosira)// deðerler farklýysa
-                        //    {
-                        //        Sýrano = 0;
-                        //    }
-                        //    //arttýr = Evraknosira; // bir sonraki hücre için önceki hücrenin deðerini sakla
-                        //}
-                        //break;
                     }
                 }
-
-
             }
         }
+
+
     }
 }

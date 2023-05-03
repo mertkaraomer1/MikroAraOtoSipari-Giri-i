@@ -43,6 +43,8 @@
             label3 = new Label();
             label4 = new Label();
             textBox3 = new TextBox();
+            label5 = new Label();
+            dateTimePicker2 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -140,7 +142,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(933, 12);
+            dateTimePicker1.Location = new Point(862, 9);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 25);
             dateTimePicker1.TabIndex = 9;
@@ -148,7 +150,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(833, 46);
+            label2.Location = new Point(762, 100);
             label2.Name = "label2";
             label2.Size = new Size(94, 17);
             label2.TabIndex = 11;
@@ -156,7 +158,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(933, 43);
+            textBox2.Location = new Point(862, 97);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(51, 25);
             textBox2.TabIndex = 10;
@@ -165,33 +167,51 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(804, 15);
+            label3.Location = new Point(688, 15);
             label3.Name = "label3";
-            label3.Size = new Size(123, 17);
+            label3.Size = new Size(168, 17);
             label3.TabIndex = 12;
-            label3.Text = "Sipariş Bitiş Tarihi:";
+            label3.Text = "Sipariş Güncelleme Tarihi:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(997, 46);
+            label4.Location = new Point(926, 100);
             label4.Name = "label4";
-            label4.Size = new Size(121, 17);
+            label4.Size = new Size(67, 17);
             label4.TabIndex = 14;
-            label4.Text = "Evrak No Seri Sıra:";
+            label4.Text = "Satıcı No:";
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(1124, 43);
+            textBox3.Location = new Point(999, 97);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(51, 25);
             textBox3.TabIndex = 13;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(733, 61);
+            label5.Name = "label5";
+            label5.Size = new Size(123, 17);
+            label5.TabIndex = 16;
+            label5.Text = "Sipariş Bitiş Tarihi:";
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(862, 53);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(200, 25);
+            dateTimePicker2.TabIndex = 15;
             // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 985);
+            Controls.Add(label5);
+            Controls.Add(dateTimePicker2);
             Controls.Add(label4);
             Controls.Add(textBox3);
             Controls.Add(label3);
@@ -237,5 +257,7 @@
         private Label label3;
         private Label label4;
         private TextBox textBox3;
+        private Label label5;
+        private DateTimePicker dateTimePicker2;
     }
 }
