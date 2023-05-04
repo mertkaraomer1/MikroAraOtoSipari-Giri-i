@@ -45,6 +45,8 @@
             textBox3 = new TextBox();
             label5 = new Label();
             dateTimePicker2 = new DateTimePicker();
+            label6 = new Label();
+            textBox4 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -205,11 +207,29 @@
             dateTimePicker2.Size = new Size(200, 25);
             dateTimePicker2.TabIndex = 15;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(755, 134);
+            label6.Name = "label6";
+            label6.Size = new Size(101, 17);
+            label6.TabIndex = 18;
+            label6.Text = "Alt Döviz kuru:";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(862, 131);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(51, 25);
+            textBox4.TabIndex = 17;
+            // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 985);
+            Controls.Add(label6);
+            Controls.Add(textBox4);
             Controls.Add(label5);
             Controls.Add(dateTimePicker2);
             Controls.Add(label4);
@@ -259,5 +279,7 @@
         private TextBox textBox3;
         private Label label5;
         private DateTimePicker dateTimePicker2;
+        private Label label6;
+        private TextBox textBox4;
     }
 }
