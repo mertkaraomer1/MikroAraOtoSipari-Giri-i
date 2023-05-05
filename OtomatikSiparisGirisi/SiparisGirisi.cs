@@ -21,7 +21,7 @@ namespace OtomatikSiparisGirisi
         private void SiparisGirisi_Load(object sender, EventArgs e)
         {
             baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=MikroDB_V16_ERMEDAS;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            dataGridView3.ColumnCount = 93;
+            dataGridView3.ColumnCount = 128;
             dataGridView3.Columns[0].Name = "GUÝD";
             dataGridView3.Columns[1].Name = "stok Kodu";
             dataGridView3.Columns[2].Name = "sip. Giriþ Tarihi";
@@ -34,7 +34,7 @@ namespace OtomatikSiparisGirisi
             dataGridView3.Columns[9].Name = "Evrak No Sýra";
             dataGridView3.Columns[10].Name = "Sipariþ Satýr No";
             dataGridView3.Columns[11].Name = "sip_belgeno";
-            dataGridView3.Columns[12].Name = "Satýcý No";
+            dataGridView3.Columns[12].Name = "sip_satici_kod";
             dataGridView3.Columns[13].Name = "Açýklama";
             dataGridView3.Columns[14].Name = "sip_aciklama2";
             dataGridView3.Columns[15].Name = "Sip_Field";
@@ -115,6 +115,41 @@ namespace OtomatikSiparisGirisi
             dataGridView3.Columns[90].Name = "sip_teklif_uid";
             dataGridView3.Columns[91].Name = "sip_parti_kodu";
             dataGridView3.Columns[92].Name = "sip_lot_no";
+            dataGridView3.Columns[93].Name = "sip_projekodu";
+            dataGridView3.Columns[94].Name = "sip_fiyat_liste_no";
+            dataGridView3.Columns[95].Name = "sip_Otv_Pntr";
+            dataGridView3.Columns[96].Name = "sip_Otv_Vergi";
+            dataGridView3.Columns[97].Name = "sip_otvtutari";
+            dataGridView3.Columns[98].Name = "sip_OtvVergisiz_Fl";
+            dataGridView3.Columns[99].Name = "sip_paket_kod";
+            dataGridView3.Columns[100].Name = "sip_Rez_uid";
+            dataGridView3.Columns[101].Name = "sip_harekettipi";
+            dataGridView3.Columns[102].Name = "sip_yetkili_uid";
+            dataGridView3.Columns[103].Name = "ip_kapatmanedenkod";
+            dataGridView3.Columns[104].Name = " sip_gecerlilik_tarihi";
+            dataGridView3.Columns[105].Name = "sip_onodeme_evrak_tip";
+            dataGridView3.Columns[106].Name = "sip_onodeme_evrak_seri";
+            dataGridView3.Columns[107].Name = "sip_onodeme_evrak_sira";
+            dataGridView3.Columns[108].Name = "sip_rezervasyon_miktari";
+            dataGridView3.Columns[109].Name = "sip_rezerveden_teslim_edilen";
+            dataGridView3.Columns[110].Name = "sip_HareketGrupKodu1";
+            dataGridView3.Columns[111].Name = "sip_HareketGrupKodu2";
+            dataGridView3.Columns[112].Name = "sip_HareketGrupKodu3";
+            dataGridView3.Columns[113].Name = " sip_Olcu1";
+            dataGridView3.Columns[114].Name = "sip_Olcu2";
+            dataGridView3.Columns[115].Name = "sip_Olcu3";
+            dataGridView3.Columns[116].Name = "sip_Olcu4";
+            dataGridView3.Columns[117].Name = "sip_Olcu5";
+            dataGridView3.Columns[118].Name = "sip_FormulMiktarNo";
+            dataGridView3.Columns[119].Name = "sip_FormulMiktar";
+            dataGridView3.Columns[120].Name = "sip_satis_fiyat_doviz_cinsi";
+            dataGridView3.Columns[121].Name = "sip_satis_fiyat_doviz_kuru";
+            dataGridView3.Columns[122].Name = "sip_eticaret_kanal_kodu";
+            dataGridView3.Columns[123].Name = "sip_Tevkifat_turu";
+            dataGridView3.Columns[124].Name = "sip_otv_tevkifat_turu";
+            dataGridView3.Columns[125].Name = "sip_otv_tevkifat_tutari";
+            dataGridView3.Columns[126].Name = "sip_create_user";
+            dataGridView3.Columns[127].Name = "sip_lastup_user";
         }
 
 
@@ -214,6 +249,39 @@ namespace OtomatikSiparisGirisi
         string sto_kod;
         private void button4_Click(object sender, EventArgs e)
         {
+            string sip_Rez_uid = "00000000 - 0000 - 0000 - 0000 - 000000000000";
+            int sip_harekettipi = 0;
+            string sip_yetkili_uid = "00000000 - 0000 - 0000 - 0000 - 000000000000";
+            string sip_kapatmanedenkod = "";
+            DateTime sip_gecerlilik_tarihi = DateTime.Now;
+            int sip_onodeme_evrak_tip = 0;
+            string sip_onodeme_evrak_seri = "";
+            int sip_onodeme_evrak_sira = 0;
+            int sip_rezervasyon_miktari = 0;
+            int sip_rezerveden_teslim_edilen = 0;
+            string sip_HareketGrupKodu1 = "";
+            string sip_HareketGrupKodu2 = "";
+            string sip_HareketGrupKodu3 = "";
+            int sip_Olcu1 = 0;
+            int sip_Olcu2 = 0;
+            int sip_Olcu3 = 0;
+            int sip_Olcu4 = 0;
+            int sip_Olcu5 = 0;
+            int sip_FormulMiktarNo = 0;
+            int sip_FormulMiktar = 0;
+            int sip_satis_fiyat_doviz_cinsi = 0;
+            int sip_satis_fiyat_doviz_kuru = 0;
+            string sip_eticaret_kanal_kodu = "";
+            int sip_Tevkifat_turu = 0;
+            int sip_otv_tevkifat_turu = 0;
+            int sip_otv_tevkifat_tutari = 0;
+            string sip_projekodu = "";
+            int sip_fiyat_liste_no = 0;
+            int sip_Otv_Pntr = 0;
+            int sip_Otv_Vergi = 0;
+            int sip_otvtutari = 0;
+            int sip_OtvVergisiz_Fl = 0;
+            string sip_paket_kod = "";
             int sip_lot_no = 0;
             string sip_parti_kodu = "";
             string sip_stal_uid = "00000000 - 0000 - 0000 - 0000 - 000000000000";
@@ -244,7 +312,7 @@ namespace OtomatikSiparisGirisi
             int sip_masraf4 = 0;
             string sip_prosip_uid = "00000000 - 0000 - 0000 - 0000 - 000000000000";
             int sip_adresno = 1;
-            string sip_teslimturu= "";
+            string sip_teslimturu = "";
             int sip_cagrilabilir_fl = 0;
             string sip_cari_sormerk = "";
             string sip_stok_sormerk = "";
@@ -272,7 +340,6 @@ namespace OtomatikSiparisGirisi
             int sip_iskonto_5 = 0;
             int sip_iskonto_6 = 0;
             int sip_birim_pntr = 1;
-            string sip_belgeno = "";
             int sip_cins = 0;
             int sip_tip = 0;
             int sip_firmano = 0;
@@ -288,10 +355,17 @@ namespace OtomatikSiparisGirisi
             int sip_SpecRECno = 0;
             int sip_DBCno = 0;
             int sipField = 21;
-            double sip_alt_doviz_kuru =Convert.ToDouble(textBox4.Text);
-            string SaticiNo = textBox3.Text.ToString();
+            double sip_alt_doviz_kuru = Convert.ToDouble(textBox4.Text);
+            DateTime User_create_date = DateTime.Now;
+            DateTime User_lastup_date = dateTimePicker1.Value;
+            int sip_create_user = Convert.ToInt32(textBox2.Text);
+            int sip_lastup_user = Convert.ToInt32(textBox5.Text);
+            DateTime sip_tarih= DateTime.Now;
+            DateTime sip_teslim_tarih=DateTime.Now;
+            DateTime sip_belge_tarih = DateTime.Now;
+            string sip_satici_kod = textBox3.Text.ToString();
             string SrmMrkz1 = "120.01.0754";
-            string EvrakNo = textBox2.Text.ToString();
+
             // DataGridView1 ve DataGridView2'deki verileri yükleyin
             // DataGridView1'deki "barkod" sütunu DataGridView2'deki "barkod" sütunuyla eþleþmelidir
             // DataGridView2'deki "stok kodu" sütunu DataGridView3'deki "stok kodu" sütunuyla eþleþmelidir
@@ -321,27 +395,28 @@ namespace OtomatikSiparisGirisi
                         // Eþleþen bir barkod bulundu
                         // DataGridView2'deki stok kodunu alýn ve DataGridView3'e yazýn
                         string stockCode = Convert.ToString(dataGridView2.Rows[j].Cells[0].Value);
-
+                        string aciklama = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value);
                         int miktar = Convert.ToInt32(dataGridView1.Rows[i].Cells[11].Value);
                         int sip_teslim_miktar = Convert.ToInt32(dataGridView1.Rows[i].Cells[11].Value);
                         int tutar = Convert.ToInt32(dataGridView1.Rows[i].Cells[15].Value);
-                        string aciklama = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value);
+                        string sip_belgeno = Convert.ToString(dataGridView1.Rows[i].Cells[13].Value);
+                        string sip_evrakno_seri = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value);
                         int Toplamtutar = Convert.ToInt32(miktar * tutar);
                         double sip_vergi = Convert.ToDouble(Math.Round(Toplamtutar * 0.08, 2));
 
                         dataGridView3.Rows.Add(Guid.NewGuid(),
                                                stockCode,
-                                               DateTime.Now.ToString(),
-                                               dateTimePicker1.Value.ToString(),
+                                               User_create_date,
+                                               User_lastup_date,
                                                SrmMrkz1,
                                                miktar,
                                                tutar,
                                                Toplamtutar,
-                                               EvrakNo,
+                                               sip_evrakno_seri,
                                                arttýr,
                                                Sýrano,
                                                sip_belgeno,
-                                               SaticiNo,
+                                               sip_satici_kod,
                                                aciklama,
                                                sip_aciklama2,
                                                sipField,
@@ -357,11 +432,11 @@ namespace OtomatikSiparisGirisi
                                                sip_special3,
                                                sip_firmano,
                                                sip_subeno,
-                                               dateTimePicker2.Value.ToString(),
-                                               DateTime.Now.ToString(),
+                                               sip_tarih,
+                                               sip_teslim_tarih,
                                                sip_tip,
                                                sip_cins,
-                                               DateTime.Now.ToString(),
+                                               sip_belge_tarih,
                                                sip_birim_pntr,
                                                sip_teslim_miktar,
                                                sip_iskonto_1,
@@ -421,13 +496,46 @@ namespace OtomatikSiparisGirisi
                                                sip_planlananmiktar,
                                                sip_teklif_uid,
                                                sip_parti_kodu,
-                                               sip_lot_no);
+                                               sip_lot_no,
+                                               sip_projekodu,
+                                               sip_fiyat_liste_no,
+                                               sip_Otv_Pntr,
+                                               sip_Otv_Vergi,
+                                               sip_otvtutari,
+                                               sip_OtvVergisiz_Fl,
+                                               sip_paket_kod,
+                                               sip_Rez_uid,
+                                               sip_harekettipi,
+                                               sip_yetkili_uid,
+                                               sip_kapatmanedenkod,
+                                               sip_gecerlilik_tarihi,
+                                               sip_onodeme_evrak_tip,
+                                               sip_onodeme_evrak_seri,
+                                               sip_onodeme_evrak_sira,
+                                               sip_rezervasyon_miktari,
+                                               sip_rezerveden_teslim_edilen,
+                                               sip_HareketGrupKodu1,
+                                               sip_HareketGrupKodu2,
+                                               sip_HareketGrupKodu3,
+                                               sip_Olcu1,
+                                               sip_Olcu2,
+                                               sip_Olcu3,
+                                               sip_Olcu4,
+                                               sip_Olcu5,
+                                               sip_FormulMiktarNo,
+                                               sip_FormulMiktar,
+                                               sip_satis_fiyat_doviz_cinsi,
+                                               sip_satis_fiyat_doviz_kuru,
+                                               sip_eticaret_kanal_kodu,
+                                               sip_Tevkifat_turu,
+                                               sip_otv_tevkifat_turu,
+                                               sip_otv_tevkifat_tutari,
+                                               sip_create_user,
+                                               sip_lastup_user);
 
                     }
                 }
             }
         }
-
-
     }
 }

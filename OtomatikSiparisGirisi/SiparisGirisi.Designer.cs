@@ -38,15 +38,15 @@
             dataGridView3 = new DataGridView();
             button4 = new Button();
             dateTimePicker1 = new DateTimePicker();
-            label2 = new Label();
-            textBox2 = new TextBox();
             label3 = new Label();
             label4 = new Label();
             textBox3 = new TextBox();
-            label5 = new Label();
-            dateTimePicker2 = new DateTimePicker();
             label6 = new Label();
             textBox4 = new TextBox();
+            textBox2 = new TextBox();
+            label2 = new Label();
+            label7 = new Label();
+            textBox5 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -149,23 +149,6 @@
             dateTimePicker1.Size = new Size(200, 25);
             dateTimePicker1.TabIndex = 9;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(762, 100);
-            label2.Name = "label2";
-            label2.Size = new Size(94, 17);
-            label2.TabIndex = 11;
-            label2.Text = "Evrak No Seri:";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(862, 97);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(51, 25);
-            textBox2.TabIndex = 10;
-            textBox2.Text = "SPX";
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -178,39 +161,23 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(926, 100);
+            label4.Location = new Point(749, 49);
             label4.Name = "label4";
-            label4.Size = new Size(67, 17);
+            label4.Size = new Size(97, 17);
             label4.TabIndex = 14;
-            label4.Text = "Satıcı No:";
+            label4.Text = "Sip_Satıcı_kod:";
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(999, 97);
+            textBox3.Location = new Point(852, 46);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(51, 25);
             textBox3.TabIndex = 13;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(733, 61);
-            label5.Name = "label5";
-            label5.Size = new Size(123, 17);
-            label5.TabIndex = 16;
-            label5.Text = "Sipariş Bitiş Tarihi:";
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new Point(862, 53);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 25);
-            dateTimePicker2.TabIndex = 15;
-            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(755, 134);
+            label6.Location = new Point(909, 49);
             label6.Name = "label6";
             label6.Size = new Size(101, 17);
             label6.TabIndex = 18;
@@ -218,25 +185,57 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(862, 131);
+            textBox4.Location = new Point(1016, 46);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(51, 25);
+            textBox4.Size = new Size(48, 25);
             textBox4.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(1256, 9);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(53, 25);
+            textBox2.TabIndex = 19;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(1081, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(169, 17);
+            label2.TabIndex = 20;
+            label2.Text = "Sip_Oluşturan_kulancı_No:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(1068, 49);
+            label7.Name = "label7";
+            label7.Size = new Size(183, 17);
+            label7.TabIndex = 22;
+            label7.Text = "Sip_Güncelleyen_kulancı_No:";
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(1256, 46);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(53, 25);
+            textBox5.TabIndex = 21;
             // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 985);
+            Controls.Add(label7);
+            Controls.Add(textBox5);
+            Controls.Add(label2);
+            Controls.Add(textBox2);
             Controls.Add(label6);
             Controls.Add(textBox4);
-            Controls.Add(label5);
-            Controls.Add(dateTimePicker2);
             Controls.Add(label4);
             Controls.Add(textBox3);
             Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(textBox2);
             Controls.Add(dateTimePicker1);
             Controls.Add(button4);
             Controls.Add(dataGridView3);
@@ -272,14 +271,14 @@
         private DataGridView dataGridView3;
         private Button button4;
         private DateTimePicker dateTimePicker1;
-        private Label label2;
-        private TextBox textBox2;
         private Label label3;
         private Label label4;
         private TextBox textBox3;
-        private Label label5;
-        private DateTimePicker dateTimePicker2;
         private Label label6;
         private TextBox textBox4;
+        private TextBox textBox2;
+        private Label label2;
+        private Label label7;
+        private TextBox textBox5;
     }
 }
