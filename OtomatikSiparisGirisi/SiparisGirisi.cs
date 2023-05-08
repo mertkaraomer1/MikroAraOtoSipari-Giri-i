@@ -17,7 +17,7 @@ namespace OtomatikSiparisGirisi
         SqlConnection baglanti;
         DataSet ds;
         SqlDataAdapter da;
-        //SqlDataAdapter daa;
+
         private void SiparisGirisi_Load(object sender, EventArgs e)
         {
             baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=MikroDB_V16_ERMEDAS;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
