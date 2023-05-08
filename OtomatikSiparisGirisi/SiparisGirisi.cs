@@ -17,7 +17,7 @@ namespace OtomatikSiparisGirisi
         SqlConnection baglanti;
         DataSet ds;
         SqlDataAdapter da;
-
+        //SqlDataAdapter daa;
         private void SiparisGirisi_Load(object sender, EventArgs e)
         {
             baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=MikroDB_V16_ERMEDAS;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
@@ -240,10 +240,13 @@ namespace OtomatikSiparisGirisi
         private void button3_Click(object sender, EventArgs e)
         {
             da = new SqlDataAdapter("Select sto_kod,bar_kodu from  stoklar left join BARKOD_TANIMLARI on  bar_stokkodu=sto_kod where bar_master=1", baglanti);
+            da = new SqlDataAdapter("Select som_kod,som_isim from  SORUMLULUK_MERKEZLERI ", baglanti);
             ds = new DataSet();
             baglanti.Open();
             da.Fill(ds, "stoklar");
             dataGridView2.DataSource = ds.Tables["stoklar"];
+            da.Fill(ds, "SORUMLULUK_MERKEZLERI");
+            dataGridView4.DataSource = ds.Tables["SORUMLULUK_MERKEZLERI"];
             baglanti.Close();
         }
         string sto_kod;
@@ -360,8 +363,8 @@ namespace OtomatikSiparisGirisi
             DateTime User_lastup_date = dateTimePicker1.Value;
             int sip_create_user = Convert.ToInt32(textBox2.Text);
             int sip_lastup_user = Convert.ToInt32(textBox5.Text);
-            DateTime sip_tarih= DateTime.Now;
-            DateTime sip_teslim_tarih=DateTime.Now;
+            DateTime sip_tarih = DateTime.Now;
+            DateTime sip_teslim_tarih = DateTime.Now;
             DateTime sip_belge_tarih = DateTime.Now;
             string sip_satici_kod = textBox3.Text.ToString();
             string SrmMrkz1 = "120.01.0754";

@@ -47,9 +47,11 @@
             label2 = new Label();
             label7 = new Label();
             textBox5 = new TextBox();
+            dataGridView4 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -222,11 +224,23 @@
             textBox5.Size = new Size(53, 25);
             textBox5.TabIndex = 21;
             // 
+            // dataGridView4
+            // 
+            dataGridView4.AllowUserToAddRows = false;
+            dataGridView4.BackgroundColor = Color.White;
+            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView4.Location = new Point(310, 628);
+            dataGridView4.Name = "dataGridView4";
+            dataGridView4.RowTemplate.Height = 25;
+            dataGridView4.Size = new Size(267, 337);
+            dataGridView4.TabIndex = 23;
+            // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 985);
+            Controls.Add(dataGridView4);
             Controls.Add(label7);
             Controls.Add(textBox5);
             Controls.Add(label2);
@@ -255,6 +269,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -280,5 +295,6 @@
         private Label label2;
         private Label label7;
         private TextBox textBox5;
+        private DataGridView dataGridView4;
     }
 }
