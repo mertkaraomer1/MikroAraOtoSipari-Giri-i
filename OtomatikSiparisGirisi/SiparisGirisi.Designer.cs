@@ -47,11 +47,9 @@
             label2 = new Label();
             label7 = new Label();
             textBox5 = new TextBox();
-            dataGridView4 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -69,7 +67,7 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 162);
+            dataGridView1.Location = new Point(-4, 162);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(1900, 398);
@@ -119,7 +117,7 @@
             dataGridView2.Location = new Point(12, 566);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(267, 399);
+            dataGridView2.Size = new Size(303, 399);
             dataGridView2.TabIndex = 6;
             // 
             // dataGridView3
@@ -136,9 +134,9 @@
             // 
             // button4
             // 
-            button4.Location = new Point(285, 566);
+            button4.Location = new Point(321, 566);
             button4.Name = "button4";
-            button4.Size = new Size(313, 56);
+            button4.Size = new Size(277, 56);
             button4.TabIndex = 8;
             button4.Text = "Barkoda Göre Stok Kodu";
             button4.UseVisualStyleBackColor = true;
@@ -224,23 +222,11 @@
             textBox5.Size = new Size(53, 25);
             textBox5.TabIndex = 21;
             // 
-            // dataGridView4
-            // 
-            dataGridView4.AllowUserToAddRows = false;
-            dataGridView4.BackgroundColor = Color.White;
-            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView4.Location = new Point(310, 628);
-            dataGridView4.Name = "dataGridView4";
-            dataGridView4.RowTemplate.Height = 25;
-            dataGridView4.Size = new Size(267, 337);
-            dataGridView4.TabIndex = 23;
-            // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 985);
-            Controls.Add(dataGridView4);
             Controls.Add(label7);
             Controls.Add(textBox5);
             Controls.Add(label2);
@@ -269,7 +255,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -295,6 +280,5 @@
         private Label label2;
         private Label label7;
         private TextBox textBox5;
-        private DataGridView dataGridView4;
     }
 }
