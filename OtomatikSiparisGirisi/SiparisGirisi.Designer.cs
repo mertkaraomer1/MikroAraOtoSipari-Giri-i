@@ -47,9 +47,14 @@
             label2 = new Label();
             label7 = new Label();
             textBox5 = new TextBox();
+            dataGridView4 = new DataGridView();
+            label5 = new Label();
+            textBox6 = new TextBox();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -67,10 +72,10 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(-4, 162);
+            dataGridView1.Location = new Point(12, 162);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1900, 398);
+            dataGridView1.Size = new Size(1505, 398);
             dataGridView1.TabIndex = 1;
             // 
             // button2
@@ -89,6 +94,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(237, 25);
             textBox1.TabIndex = 3;
+            textBox1.Text = "sonuc";
             // 
             // label1
             // 
@@ -222,11 +228,53 @@
             textBox5.Size = new Size(53, 25);
             textBox5.TabIndex = 21;
             // 
+            // dataGridView4
+            // 
+            dataGridView4.AllowUserToAddRows = false;
+            dataGridView4.BackgroundColor = Color.White;
+            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView4.Location = new Point(1523, 162);
+            dataGridView4.Name = "dataGridView4";
+            dataGridView4.RowTemplate.Height = 25;
+            dataGridView4.Size = new Size(389, 398);
+            dataGridView4.TabIndex = 23;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(1570, 15);
+            label5.Name = "label5";
+            label5.Size = new Size(99, 17);
+            label5.TabIndex = 26;
+            label5.Text = "Exel Sayfa Adı:";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(1675, 15);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(237, 25);
+            textBox6.TabIndex = 25;
+            textBox6.Text = "FİRMA TANIMLAYICI KOD";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(1675, 46);
+            button5.Name = "button5";
+            button5.Size = new Size(237, 45);
+            button5.TabIndex = 24;
+            button5.Text = "Exel Tablosunu Aktar";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 985);
+            Controls.Add(label5);
+            Controls.Add(textBox6);
+            Controls.Add(button5);
+            Controls.Add(dataGridView4);
             Controls.Add(label7);
             Controls.Add(textBox5);
             Controls.Add(label2);
@@ -255,6 +303,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -280,5 +329,9 @@
         private Label label2;
         private Label label7;
         private TextBox textBox5;
+        private DataGridView dataGridView4;
+        private Label label5;
+        private TextBox textBox6;
+        private Button button5;
     }
 }

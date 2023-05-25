@@ -246,20 +246,90 @@ namespace OtomatikSiparisGirisi
                     {
                         baglanti.Close();
                     }
+                    var Guid = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value); //0 sütün
+                    var stockCode = Convert.ToString(dataGridView1.Rows[i].Cells[1].Value); //1 sütün
+                    var User_create_date = Convert.ToString(dataGridView1.Rows[i].Cells[2].Value); //2 sütün
+                    var User_lastup_date = Convert.ToString(dataGridView1.Rows[i].Cells[3].Value); //3 sütün
+                    var SrmMrkz1 = Convert.ToString(dataGridView1.Rows[i].Cells[4].Value); //4 sütün
+                    var miktar = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); //5 sütün
+                    var tutar = Convert.ToString(dataGridView1.Rows[i].Cells[6].Value); //6 sütün
+                    var Toplamtutar = Convert.ToString(dataGridView1.Rows[i].Cells[7].Value); //7 sütün
+                    var sip_evrakno_seri = Convert.ToString(dataGridView1.Rows[i].Cells[8].Value); //8 sütün
+                    var arttýr = Convert.ToString(dataGridView1.Rows[i].Cells[9].Value); //9 sütün
+                    var Sýrano = Convert.ToString(dataGridView1.Rows[i].Cells[10].Value); //10 sütün
+                    var sip_belgeno = Convert.ToString(dataGridView1.Rows[i].Cells[11].Value); //11 sütün
+                    var sip_satici_kod = Convert.ToString(dataGridView1.Rows[i].Cells[12].Value); //12 sütün
+                    var aciklama = Convert.ToString(dataGridView1.Rows[i].Cells[13].Value); //13 sütün
+                    var sip_aciklama2 = Convert.ToString(dataGridView1.Rows[i].Cells[14].Value); //14 sütün
+                    var sipField = Convert.ToString(dataGridView1.Rows[i].Cells[15].Value); //15 sütün
+                    var sip_DBCno = Convert.ToString(dataGridView1.Rows[i].Cells[16].Value); //16 sütün
+                    var sip_SpecRECno = Convert.ToString(dataGridView1.Rows[i].Cells[17].Value); //17 sütün
+                    var sip_iptal = Convert.ToString(dataGridView1.Rows[i].Cells[18].Value); //18 sütün
+                    var sip_hidden = Convert.ToString(dataGridView1.Rows[i].Cells[19].Value); //19 sütün
+                    var sip_kilitli = Convert.ToString(dataGridView1.Rows[i].Cells[20].Value); //20 sütün
+                    var sip_degisti = Convert.ToString(dataGridView1.Rows[i].Cells[21].Value); //21 sütün
+                    var sip_checksum = Convert.ToString(dataGridView1.Rows[i].Cells[22].Value); //22 sütün
+                    var sip_special1 = Convert.ToString(dataGridView1.Rows[i].Cells[23].Value); //23 sütün
+                    var sip_special2 = Convert.ToString(dataGridView1.Rows[i].Cells[24].Value); //24 sütün
+                    var sip_special3 = Convert.ToString(dataGridView1.Rows[i].Cells[25].Value); //25 sütün
+                    var sip_firmano = Convert.ToString(dataGridView1.Rows[i].Cells[26].Value); //26 sütün
+                    var sip_subeno = Convert.ToString(dataGridView1.Rows[i].Cells[27].Value); //27 sütün
+                    var sip_tarih = Convert.ToString(dataGridView1.Rows[i].Cells[28].Value); //28 sütün
 
-                    var IKN = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value); //0 sütün
-                    var Musteri_Adi = Convert.ToString("MNG KARGO"); //6 sütün
-                    var Malzeme_Adi = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value).ToString(); //7 sütün
-                    var Barkod = Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value).ToString(); //9 sütün
-                    var DMO_Urun_No = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value).ToString(); //10 sütün
-                    var Miktar = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); //12 sütün
-                    var Satin_Alma_Sip_No = Convert.ToString(dataGridView1.Rows[i].Cells[6].Value);//14 sütün
-                    var Tekif_Tutarý = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); //16 sütün
-                    var Sipariþ_Parti_No = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); //22 sütün
-                    var Teslim_Adresi = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); //24 sütün
+                    var sip_create_user = Convert.ToString(dataGridView1.Rows[i].Cells[126].Value); //126 sütün
+                    var sip_lastup_user = Convert.ToString(dataGridView1.Rows[i].Cells[127].Value); //127 sütün
+
+                    //var IKN = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value); //0 sütün
+                    //var Musteri_Adi = Convert.ToString("MNG KARGO"); //6 sütün
+                    //var Malzeme_Adi = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value).ToString(); //7 sütün
+                    //var Barkod = Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value).ToString(); //9 sütün
+                    //var DMO_Urun_No = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value).ToString(); //10 sütün
+                    //var Miktar = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); //12 sütün
+                    //var Satin_Alma_Sip_No = Convert.ToString(dataGridView1.Rows[i].Cells[6].Value);//14 sütün
+                    //var Tekif_Tutarý = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); //16 sütün
+                    //var Sipariþ_Parti_No = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); //22 sütün
+                    //var Teslim_Adresi = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); //24 sütün
 
                     baglanti.Open();
-                    SqlCommand komut = new SqlCommand("INSERT INTO SIPARISLER (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,ÝL,Tarih) VALUES ('" + IKN + "' , '" + Musteri_Adi + "','" + Malzeme_Adi + "' , '" + Barkod + "' , '" + DMO_Urun_No + "', '" + Miktar + "','" + Satin_Alma_Sip_No + "','" + Tekif_Tutarý + "','" + Sipariþ_Parti_No + "','" + Teslim_Adresi + "')", baglanti);
+                    SqlCommand komut = new SqlCommand("INSERT INTO SIPARISLER (sip_Guid,sip_DBCno,sip_SpecRECno,sip_iptal,sip_fileid,sip_hidden,sip_kilitli,sip_degisti,sip_checksum ,sip_create_user,sip_create_date,sip_lastup_user,sip_lastup_date,sip_special1,sip_special2,sip_special3,sip_firmano,sip_subeno,sip_tarih) VALUES ('"
+                                                      + Guid
+                                                      + "' , '"
+                                                      + sip_DBCno
+                                                      + "','"
+                                                      + sip_SpecRECno
+                                                      + "' , '"
+                                                      + sip_iptal
+                                                      + "' , '"
+                                                      + sipField
+                                                      + "', '"
+                                                      + sip_hidden
+                                                      + "','"
+                                                      + sip_kilitli
+                                                      + "','"
+                                                      + sip_degisti
+                                                      + "','"
+                                                      + sip_checksum
+                                                      + "','"
+                                                      + sip_create_user
+                                                      + "','"
+                                                      + User_create_date
+                                                      + "','"
+                                                      + sip_lastup_user
+                                                      + "','"
+                                                      + User_lastup_date
+                                                      + "','"
+                                                      + sip_special1
+                                                      + "','"
+                                                      + sip_special2
+                                                      + "','"
+                                                      + sip_special3
+                                                      + "','"
+                                                      + sip_firmano
+                                                      + "','"
+                                                      + sip_subeno
+                                                      + "','"
+                                                      + sip_tarih
+                                                      + "')", baglanti);
                     komut.ExecuteNonQuery();
                 }
                 baglanti.Close();
@@ -286,26 +356,6 @@ namespace OtomatikSiparisGirisi
             baglanti.Close();
 
 
-            // burada tabloda eger SomName diye bir alan varsa o isimleri karsýlastýrýyoruz. Item.name kýsmý excellden gelen foreach. ona item ismini verdigimizi dusunduk. trim fonksiyonu da bosluk vs varsa fazla onu alýyor string karsýlastýrmalarýnda onemli
-            // var som_kod = tablo.FirstOrDefault(x => x.som_isim.Equals(Item.name.trim()));
-            // eger somdata null degilse yukarýda doldurdugumuz tablo listesindeki veriler icerisinde bu gelen excellde bu isimde veri oldugu anlamýna geliyor. somData.somKod dýyýp kod verisini alrýsýn.
-            //if(somData != null)
-
-
-            ////SQL sorgusunu oluþtur
-            //string query = "Select sto_kod,bar_kodu from  stoklar join BARKOD_TANIMLARI on bar_stokkodu=sto_kod UNION ALL Select som_kod,som_isim from  SORUMLULUK_MERKEZLERI ";
-
-            //// SqlDataAdapter ve DataSet nesnelerini oluþtur
-            //SqlDataAdapter adapter = new SqlDataAdapter(query, baglanti);
-            //DataSet dataSet = new DataSet();
-
-            //// Verileri doldur
-            //adapter.Fill(dataSet);
-
-            //// DataGridView kontrolüne DataSet nesnesini veri kaynaðý olarak ata
-            //dataGridView2.AutoGenerateColumns = true;
-            //dataGridView2.DataSource = dataSet.Tables[0];
-            //dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
         }
@@ -377,7 +427,7 @@ namespace OtomatikSiparisGirisi
             int sip_adresno = 1;
             string sip_teslimturu = "";
             int sip_cagrilabilir_fl = 0;
-            //string sip_cari_sormerk = "";
+            string sip_cari_sormerk = "";
             string sip_stok_sormerk = "";
             int sip_cari_grupno = 0;
             int sip_doviz_cinsi = 0;
@@ -450,7 +500,7 @@ namespace OtomatikSiparisGirisi
                 }
                 previousValue = currentValue; // bir sonraki hücre için önceki hücrenin deðerini sakla
                 string barcode = Convert.ToString(dataGridView1.Rows[i].Cells[8].Value);
-                string musteriAdi = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value);
+                //string musteriAdi = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value);
 
                 for (int j = 0; j < dataGridView2.Rows.Count; j++)
                 {
@@ -468,12 +518,12 @@ namespace OtomatikSiparisGirisi
                         string sip_evrakno_seri = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value);
                         int Toplamtutar = Convert.ToInt32(miktar * tutar);
                         double sip_vergi = Convert.ToDouble(Math.Round(Toplamtutar * 0.08, 2));
-                        var somData = tablo.FirstOrDefault(x => x.som_isim.Equals(musteriAdi));
-                        string sip_cari_sormerk = string.Empty;
-                        if (somData != null)
-                        {
-                            sip_cari_sormerk = somData.som_kodu;
-                        }
+                        //var somData = tablo.FirstOrDefault(x => x.som_isim.Equals(musteriAdi));
+                        //string sip_cari_sormerk = string.Empty;
+                        //if (somData != null)
+                        //{
+                        //    sip_cari_sormerk = somData.som_kodu;
+                        //}
                         dataGridView3.Rows.Add(Guid.NewGuid(),
                                                stockCode,
                                                User_create_date,
@@ -608,5 +658,49 @@ namespace OtomatikSiparisGirisi
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dataGridView4.Rows.Clear();
+            try
+            {
+                // Dosya seçme penceresi açmak için
+                OpenFileDialog file = new OpenFileDialog();
+                file.Filter = "Excel Dosyasý |*.xlsx";
+                file.ShowDialog();
+
+                // seçtiðimiz excel'in tam yolu
+                string tamYol = file.FileName;
+
+                //Excel baðlantý adresi
+                string baglantiAdresi = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + tamYol + ";Extended Properties='Excel 12.0;IMEX=1;'";
+
+                //baðlantý 
+                OleDbConnection baglanti = new(baglantiAdresi);
+
+                //tüm verileri seçmek için select sorgumuz. Sayfa1 olan kýsmý Excel'de hangi sayfayý açmak istiyosanýz orayý yazabilirsiniz.
+                OleDbCommand komut = new OleDbCommand("Select * From [" + textBox6.Text + "$]", baglanti);
+
+                //baðlantýyý açýyoruz.
+                baglanti.Open();
+
+                //Gelen verileri DataAdapter'e atýyoruz.
+                OleDbDataAdapter da = new OleDbDataAdapter(komut);
+
+                //Grid'imiz için bir DataTable oluþturuyoruz.
+                DataTable data = new DataTable();
+
+                //DataAdapter'da ki verileri data adýndaki DataTable'a dolduruyoruz.
+                da.Fill(data);
+
+                //DataGrid'imizin kaynaðýný oluþturduðumuz DataTable ile dolduruyoruz.
+                dataGridView4.DataSource = data;
+
+            }
+            catch (Exception ex)
+            {
+                // Hata alýrsak ekrana bastýrýyoruz.
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
