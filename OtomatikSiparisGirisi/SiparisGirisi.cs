@@ -157,40 +157,7 @@ namespace OtomatikSiparisGirisi
             public string som_kodu { get; set; }
             public string som_isim { get; set; }
         }
-        List<atablosu> tablo = new List<atablosu>();
-        void fillATablosu()
-        {
-            // Veritabaný baðlantýsý kurulur
-            baglanti.Open();
-
-            // SQL sorgusu yazýlýr
-            string query = "Select som_kod,som_isim from  SORUMLULUK_MERKEZLERI ";
-
-            // SQL sorgusu çalýþtýrýlýr
-            SqlCommand command = new SqlCommand(query, baglanti);
-            SqlDataReader reader = command.ExecuteReader();
-
-            // Veriler listeye aktarýlýr
-
-            while (reader.Read())
-            {
-                atablosu sormek = new atablosu();
-                sormek.som_kodu = reader.GetString(0);
-                sormek.som_isim = reader.GetString(1);
-                tablo.Add(sormek);
-            }
-
-            // Baðlantý kapatýlýr
-            reader.Close();
-            baglanti.Close();
-
-
-
-
-
-
-
-        }
+       
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
@@ -347,7 +314,6 @@ namespace OtomatikSiparisGirisi
 
         private void button3_Click(object sender, EventArgs e)
         {
-            fillATablosu();
             da = new SqlDataAdapter("Select sto_kod,bar_kodu from  stoklar left join BARKOD_TANIMLARI on  bar_stokkodu=sto_kod where bar_master=1 ", baglanti);
             ds = new DataSet();
             baglanti.Open();
@@ -427,7 +393,7 @@ namespace OtomatikSiparisGirisi
             int sip_adresno = 1;
             string sip_teslimturu = "";
             int sip_cagrilabilir_fl = 0;
-            string sip_cari_sormerk = "";
+            //string sip_cari_sormerk = "";
             string sip_stok_sormerk = "";
             int sip_cari_grupno = 0;
             int sip_doviz_cinsi = 0;
@@ -489,6 +455,7 @@ namespace OtomatikSiparisGirisi
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 string currentValue = Convert.ToString(dataGridView1.Rows[i].Cells[3].Value); // sütundaki diðer hücrelerin deðerini al
+                var MusteriNo = Convert.ToString(dataGridView1.Rows[i].Cells[2].Value); // sütundaki diðer hücrelerin deðerini al
                 if (currentValue != previousValue) // deðerler farklýysa
                 {
                     arttýr++;
@@ -500,9 +467,8 @@ namespace OtomatikSiparisGirisi
                 }
                 previousValue = currentValue; // bir sonraki hücre için önceki hücrenin deðerini sakla
                 string barcode = Convert.ToString(dataGridView1.Rows[i].Cells[8].Value);
-                //string musteriAdi = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value);
 
-                for (int j = 0; j < dataGridView2.Rows.Count; j++)
+                    for (int j = 0; j < dataGridView2.Rows.Count; j++)
                 {
 
                     if (barcode == Convert.ToString(dataGridView2.Rows[j].Cells[1].Value))
@@ -518,12 +484,14 @@ namespace OtomatikSiparisGirisi
                         string sip_evrakno_seri = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value);
                         int Toplamtutar = Convert.ToInt32(miktar * tutar);
                         double sip_vergi = Convert.ToDouble(Math.Round(Toplamtutar * 0.08, 2));
-                        //var somData = tablo.FirstOrDefault(x => x.som_isim.Equals(musteriAdi));
-                        //string sip_cari_sormerk = string.Empty;
-                        //if (somData != null)
-                        //{
-                        //    sip_cari_sormerk = somData.som_kodu;
-                        //}
+                        for (int k = 0; k < dataGridView4.Rows.Count; k++)
+                        {
+                            if (MusteriNo == Convert.ToString(dataGridView4.Rows[k].Cells[2].Value))
+                            {
+                                var sip_cari_sormerk = Convert.ToString(dataGridView4.Rows[k].Cells[0].Value);
+                            }
+
+                        }
                         dataGridView3.Rows.Add(Guid.NewGuid(),
                                                stockCode,
                                                User_create_date,
