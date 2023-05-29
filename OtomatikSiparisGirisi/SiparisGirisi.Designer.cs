@@ -51,6 +51,8 @@
             label5 = new Label();
             textBox6 = new TextBox();
             button5 = new Button();
+            label8 = new Label();
+            textBox7 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -266,11 +268,29 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(766, 80);
+            label8.Name = "label8";
+            label8.Size = new Size(80, 17);
+            label8.TabIndex = 28;
+            label8.Text = "DMO_kodu:";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(852, 77);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(51, 25);
+            textBox7.TabIndex = 27;
+            // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 985);
+            Controls.Add(label8);
+            Controls.Add(textBox7);
             Controls.Add(label5);
             Controls.Add(textBox6);
             Controls.Add(button5);
@@ -333,5 +353,7 @@
         private Label label5;
         private TextBox textBox6;
         private Button button5;
+        private Label label8;
+        private TextBox textBox7;
     }
 }

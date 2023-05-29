@@ -157,7 +157,7 @@ namespace OtomatikSiparisGirisi
             public string som_kodu { get; set; }
             public string som_isim { get; set; }
         }
-       
+
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
@@ -443,7 +443,7 @@ namespace OtomatikSiparisGirisi
             DateTime sip_teslim_tarih = DateTime.Now;
             DateTime sip_belge_tarih = DateTime.Now;
             string sip_satici_kod = textBox3.Text.ToString();
-            string SrmMrkz1 = "120.01.0754";
+            string SrmMrkz1 = textBox7.Text.ToString();
 
             // DataGridView1 ve DataGridView2'deki verileri yükleyin
             // DataGridView1'deki "barkod" sütunu DataGridView2'deki "barkod" sütunuyla eþleþmelidir
@@ -468,7 +468,7 @@ namespace OtomatikSiparisGirisi
                 previousValue = currentValue; // bir sonraki hücre için önceki hücrenin deðerini sakla
                 string barcode = Convert.ToString(dataGridView1.Rows[i].Cells[8].Value);
 
-                    for (int j = 0; j < dataGridView2.Rows.Count; j++)
+                for (int j = 0; j < dataGridView2.Rows.Count; j++)
                 {
 
                     if (barcode == Convert.ToString(dataGridView2.Rows[j].Cells[1].Value))
@@ -484,6 +484,8 @@ namespace OtomatikSiparisGirisi
                         string sip_evrakno_seri = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value);
                         int Toplamtutar = Convert.ToInt32(miktar * tutar);
                         double sip_vergi = Convert.ToDouble(Math.Round(Toplamtutar * 0.08, 2));
+                       
+
                         for (int k = 0; k < dataGridView4.Rows.Count; k++)
                         {
                             if (MusteriNo == Convert.ToString(dataGridView4.Rows[k].Cells[2].Value))
