@@ -1,8 +1,10 @@
+using Microsoft.VisualBasic;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace OtomatikSiparisGirisi
 {
@@ -22,145 +24,12 @@ namespace OtomatikSiparisGirisi
         private void SiparisGirisi_Load(object sender, EventArgs e)
         {
             baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=MikroDB_V16_ERMEDAS;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            dataGridView3.ColumnCount = 128;
-            dataGridView3.Columns[0].Name = "GUÝD";
-            dataGridView3.Columns[1].Name = "stok Kodu";
-            dataGridView3.Columns[2].Name = "sip. Giriþ Tarihi";
-            dataGridView3.Columns[3].Name = "sip. Güncelleme Tarihi";
-            dataGridView3.Columns[4].Name = "1.SRM Merkezi";
-            dataGridView3.Columns[5].Name = "Miktar";
-            dataGridView3.Columns[6].Name = "Tutar";
-            dataGridView3.Columns[7].Name = "Toplam Tutar";
-            dataGridView3.Columns[8].Name = "Evrak No";
-            dataGridView3.Columns[9].Name = "Evrak No Sýra";
-            dataGridView3.Columns[10].Name = "Sipariþ Satýr No";
-            dataGridView3.Columns[11].Name = "sip_belgeno";
-            dataGridView3.Columns[12].Name = "sip_satici_kod";
-            dataGridView3.Columns[13].Name = "Açýklama";
-            dataGridView3.Columns[14].Name = "sip_aciklama2";
-            dataGridView3.Columns[15].Name = "Sip_Field";
-            dataGridView3.Columns[16].Name = "sip_DBCno";
-            dataGridView3.Columns[17].Name = "sip_SpecRECno";
-            dataGridView3.Columns[18].Name = "sip_iptal";
-            dataGridView3.Columns[19].Name = "sip_hidden";
-            dataGridView3.Columns[20].Name = "sip_kilitli";
-            dataGridView3.Columns[21].Name = "sip_degisti";
-            dataGridView3.Columns[22].Name = "sip_checksum";
-            dataGridView3.Columns[23].Name = "sip_special1";
-            dataGridView3.Columns[24].Name = "sip_special2";
-            dataGridView3.Columns[25].Name = "sip_special3";
-            dataGridView3.Columns[26].Name = "sip_firmano";
-            dataGridView3.Columns[27].Name = "sip_subeno";
-            dataGridView3.Columns[28].Name = "sip_Bitiþ Tarihi";
-            dataGridView3.Columns[29].Name = "sip_Tarihi";
-            dataGridView3.Columns[30].Name = "sip_tip";
-            dataGridView3.Columns[31].Name = "sip_cins";
-            dataGridView3.Columns[32].Name = "sip_belge_tarih";
-            dataGridView3.Columns[33].Name = "sip_birim_pntr";
-            dataGridView3.Columns[34].Name = "sip_teslim_miktar";
-            dataGridView3.Columns[35].Name = "sip_iskonto_1";
-            dataGridView3.Columns[36].Name = "sip_iskonto_2";
-            dataGridView3.Columns[37].Name = "sip_iskonto_3";
-            dataGridView3.Columns[38].Name = "sip_iskonto_4";
-            dataGridView3.Columns[39].Name = "sip_iskonto_5";
-            dataGridView3.Columns[40].Name = "sip_iskonto_6";
-            dataGridView3.Columns[41].Name = "sip_masraf_1";
-            dataGridView3.Columns[42].Name = "sip_masraf_2";
-            dataGridView3.Columns[43].Name = "sip_masraf_3";
-            dataGridView3.Columns[44].Name = "sip_masraf_4";
-            dataGridView3.Columns[45].Name = "sip_vergi_pntr";
-            dataGridView3.Columns[46].Name = "sip_vergi";
-            dataGridView3.Columns[47].Name = "sip_masvergi_pntr";
-            dataGridView3.Columns[48].Name = "sip_masvergi";
-            dataGridView3.Columns[49].Name = "sip_opno";
-            dataGridView3.Columns[50].Name = "sip_depono";
-            dataGridView3.Columns[51].Name = "sip_OnaylayanKulNo";
-            dataGridView3.Columns[52].Name = "sip_vergisiz_fl";
-            dataGridView3.Columns[53].Name = "sip_kapat_fl";
-            dataGridView3.Columns[54].Name = "sip_promosyon_fl";
-            dataGridView3.Columns[55].Name = "sip_cari_sormerk";
-            dataGridView3.Columns[56].Name = "sip_stok_sormerk";
-            dataGridView3.Columns[57].Name = "sip_cari_grupno";
-            dataGridView3.Columns[58].Name = "sip_doviz_cinsi";
-            dataGridView3.Columns[59].Name = "sip_doviz_kuru ";
-            dataGridView3.Columns[60].Name = "sip_alt_doviz_kuru ";
-            dataGridView3.Columns[61].Name = "sip_adresno";
-            dataGridView3.Columns[62].Name = "sip_teslimturu";
-            dataGridView3.Columns[63].Name = "sip_cagrilabilir_fl";
-            dataGridView3.Columns[64].Name = "sip_prosip_uid";
-            dataGridView3.Columns[65].Name = "sip_iskonto1";
-            dataGridView3.Columns[66].Name = "sip_iskonto2";
-            dataGridView3.Columns[67].Name = "sip_iskonto3";
-            dataGridView3.Columns[68].Name = "sip_iskonto4";
-            dataGridView3.Columns[69].Name = "sip_iskonto5";
-            dataGridView3.Columns[70].Name = "sip_iskonto6 ";
-            dataGridView3.Columns[71].Name = "sip_masraf1 ";
-            dataGridView3.Columns[72].Name = "sip_masraf2";
-            dataGridView3.Columns[73].Name = "sip_masraf3";
-            dataGridView3.Columns[74].Name = "sip_masraf4";
-            dataGridView3.Columns[75].Name = "sip_isk1";
-            dataGridView3.Columns[76].Name = "sip_isk2";
-            dataGridView3.Columns[77].Name = "sip_isk3";
-            dataGridView3.Columns[78].Name = "sip_isk4";
-            dataGridView3.Columns[79].Name = "sip_isk5";
-            dataGridView3.Columns[80].Name = "sip_isk6";
-            dataGridView3.Columns[81].Name = "sip_mas1";
-            dataGridView3.Columns[82].Name = "sip_mas2";
-            dataGridView3.Columns[83].Name = "sip_mas3";
-            dataGridView3.Columns[84].Name = "sip_mas4";
-            dataGridView3.Columns[85].Name = "sip_Exp_Imp_Kodu";
-            dataGridView3.Columns[86].Name = " sip_kar_orani";
-            dataGridView3.Columns[87].Name = " sip_durumu";
-            dataGridView3.Columns[88].Name = "sip_stal_uid";
-            dataGridView3.Columns[89].Name = "sip_planlananmiktar";
-            dataGridView3.Columns[90].Name = "sip_teklif_uid";
-            dataGridView3.Columns[91].Name = "sip_parti_kodu";
-            dataGridView3.Columns[92].Name = "sip_lot_no";
-            dataGridView3.Columns[93].Name = "sip_projekodu";
-            dataGridView3.Columns[94].Name = "sip_fiyat_liste_no";
-            dataGridView3.Columns[95].Name = "sip_Otv_Pntr";
-            dataGridView3.Columns[96].Name = "sip_Otv_Vergi";
-            dataGridView3.Columns[97].Name = "sip_otvtutari";
-            dataGridView3.Columns[98].Name = "sip_OtvVergisiz_Fl";
-            dataGridView3.Columns[99].Name = "sip_paket_kod";
-            dataGridView3.Columns[100].Name = "sip_Rez_uid";
-            dataGridView3.Columns[101].Name = "sip_harekettipi";
-            dataGridView3.Columns[102].Name = "sip_yetkili_uid";
-            dataGridView3.Columns[103].Name = "ip_kapatmanedenkod";
-            dataGridView3.Columns[104].Name = " sip_gecerlilik_tarihi";
-            dataGridView3.Columns[105].Name = "sip_onodeme_evrak_tip";
-            dataGridView3.Columns[106].Name = "sip_onodeme_evrak_seri";
-            dataGridView3.Columns[107].Name = "sip_onodeme_evrak_sira";
-            dataGridView3.Columns[108].Name = "sip_rezervasyon_miktari";
-            dataGridView3.Columns[109].Name = "sip_rezerveden_teslim_edilen";
-            dataGridView3.Columns[110].Name = "sip_HareketGrupKodu1";
-            dataGridView3.Columns[111].Name = "sip_HareketGrupKodu2";
-            dataGridView3.Columns[112].Name = "sip_HareketGrupKodu3";
-            dataGridView3.Columns[113].Name = " sip_Olcu1";
-            dataGridView3.Columns[114].Name = "sip_Olcu2";
-            dataGridView3.Columns[115].Name = "sip_Olcu3";
-            dataGridView3.Columns[116].Name = "sip_Olcu4";
-            dataGridView3.Columns[117].Name = "sip_Olcu5";
-            dataGridView3.Columns[118].Name = "sip_FormulMiktarNo";
-            dataGridView3.Columns[119].Name = "sip_FormulMiktar";
-            dataGridView3.Columns[120].Name = "sip_satis_fiyat_doviz_cinsi";
-            dataGridView3.Columns[121].Name = "sip_satis_fiyat_doviz_kuru";
-            dataGridView3.Columns[122].Name = "sip_eticaret_kanal_kodu";
-            dataGridView3.Columns[123].Name = "sip_Tevkifat_turu";
-            dataGridView3.Columns[124].Name = "sip_otv_tevkifat_turu";
-            dataGridView3.Columns[125].Name = "sip_otv_tevkifat_tutari";
-            dataGridView3.Columns[126].Name = "sip_create_user";
-            dataGridView3.Columns[127].Name = "sip_lastup_user";
-        }
-        public class atablosu
-        {
-            public string som_kodu { get; set; }
-            public string som_isim { get; set; }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
+            //dataGridView1.Rows.Clear();
             try
             {
                 // Dosya seçme penceresi açmak için
@@ -193,8 +62,10 @@ namespace OtomatikSiparisGirisi
                 da.Fill(data);
 
                 //DataGrid'imizin kaynaðýný oluþturduðumuz DataTable ile dolduruyoruz.
-                dataGridView1.DataSource = data;
+                //dataGridView1.DataSource = data;
 
+                customerList = DataTableConverter.ConvertTo<Customer>(data);
+                MessageBox.Show("Müþteri Listesi Yüklendi");
             }
             catch (Exception ex)
             {
@@ -202,435 +73,312 @@ namespace OtomatikSiparisGirisi
                 MessageBox.Show(ex.Message);
             }
         }
-
+        List<Customer> customerList = new List<Customer>();
+        List<Product> productList = new List<Product>();
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                if (baglanti.State == ConnectionState.Open)
                 {
-                    if (baglanti.State == ConnectionState.Open)
-                    {
-                        baglanti.Close();
-                    }
-                    var Guid = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value); //0 sütün
-                    var stockCode = Convert.ToString(dataGridView1.Rows[i].Cells[1].Value); //1 sütün
-                    var User_create_date = Convert.ToString(dataGridView1.Rows[i].Cells[2].Value); //2 sütün
-                    var User_lastup_date = Convert.ToString(dataGridView1.Rows[i].Cells[3].Value); //3 sütün
-                    var SrmMrkz1 = Convert.ToString(dataGridView1.Rows[i].Cells[4].Value); //4 sütün
-                    var miktar = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); //5 sütün
-                    var tutar = Convert.ToString(dataGridView1.Rows[i].Cells[6].Value); //6 sütün
-                    var Toplamtutar = Convert.ToString(dataGridView1.Rows[i].Cells[7].Value); //7 sütün
-                    var sip_evrakno_seri = Convert.ToString(dataGridView1.Rows[i].Cells[8].Value); //8 sütün
-                    var arttýr = Convert.ToString(dataGridView1.Rows[i].Cells[9].Value); //9 sütün
-                    var Sýrano = Convert.ToString(dataGridView1.Rows[i].Cells[10].Value); //10 sütün
-                    var sip_belgeno = Convert.ToString(dataGridView1.Rows[i].Cells[11].Value); //11 sütün
-                    var sip_satici_kod = Convert.ToString(dataGridView1.Rows[i].Cells[12].Value); //12 sütün
-                    var aciklama = Convert.ToString(dataGridView1.Rows[i].Cells[13].Value); //13 sütün
-                    var sip_aciklama2 = Convert.ToString(dataGridView1.Rows[i].Cells[14].Value); //14 sütün
-                    var sipField = Convert.ToString(dataGridView1.Rows[i].Cells[15].Value); //15 sütün
-                    var sip_DBCno = Convert.ToString(dataGridView1.Rows[i].Cells[16].Value); //16 sütün
-                    var sip_SpecRECno = Convert.ToString(dataGridView1.Rows[i].Cells[17].Value); //17 sütün
-                    var sip_iptal = Convert.ToString(dataGridView1.Rows[i].Cells[18].Value); //18 sütün
-                    var sip_hidden = Convert.ToString(dataGridView1.Rows[i].Cells[19].Value); //19 sütün
-                    var sip_kilitli = Convert.ToString(dataGridView1.Rows[i].Cells[20].Value); //20 sütün
-                    var sip_degisti = Convert.ToString(dataGridView1.Rows[i].Cells[21].Value); //21 sütün
-                    var sip_checksum = Convert.ToString(dataGridView1.Rows[i].Cells[22].Value); //22 sütün
-                    var sip_special1 = Convert.ToString(dataGridView1.Rows[i].Cells[23].Value); //23 sütün
-                    var sip_special2 = Convert.ToString(dataGridView1.Rows[i].Cells[24].Value); //24 sütün
-                    var sip_special3 = Convert.ToString(dataGridView1.Rows[i].Cells[25].Value); //25 sütün
-                    var sip_firmano = Convert.ToString(dataGridView1.Rows[i].Cells[26].Value); //26 sütün
-                    var sip_subeno = Convert.ToString(dataGridView1.Rows[i].Cells[27].Value); //27 sütün
-                    var sip_tarih = Convert.ToString(dataGridView1.Rows[i].Cells[28].Value); //28 sütün
-
-                    var sip_create_user = Convert.ToString(dataGridView1.Rows[i].Cells[126].Value); //126 sütün
-                    var sip_lastup_user = Convert.ToString(dataGridView1.Rows[i].Cells[127].Value); //127 sütün
-
-                    //var IKN = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value); //0 sütün
-                    //var Musteri_Adi = Convert.ToString("MNG KARGO"); //6 sütün
-                    //var Malzeme_Adi = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value).ToString(); //7 sütün
-                    //var Barkod = Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value).ToString(); //9 sütün
-                    //var DMO_Urun_No = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value).ToString(); //10 sütün
-                    //var Miktar = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); //12 sütün
-                    //var Satin_Alma_Sip_No = Convert.ToString(dataGridView1.Rows[i].Cells[6].Value);//14 sütün
-                    //var Tekif_Tutarý = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); //16 sütün
-                    //var Sipariþ_Parti_No = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); //22 sütün
-                    //var Teslim_Adresi = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); //24 sütün
-
-                    baglanti.Open();
-                    SqlCommand komut = new SqlCommand("INSERT INTO SIPARISLER (sip_Guid,sip_DBCno,sip_SpecRECno,sip_iptal,sip_fileid,sip_hidden,sip_kilitli,sip_degisti,sip_checksum ,sip_create_user,sip_create_date,sip_lastup_user,sip_lastup_date,sip_special1,sip_special2,sip_special3,sip_firmano,sip_subeno,sip_tarih) VALUES ('"
-                                                      + Guid
-                                                      + "' , '"
-                                                      + sip_DBCno
-                                                      + "','"
-                                                      + sip_SpecRECno
-                                                      + "' , '"
-                                                      + sip_iptal
-                                                      + "' , '"
-                                                      + sipField
-                                                      + "', '"
-                                                      + sip_hidden
-                                                      + "','"
-                                                      + sip_kilitli
-                                                      + "','"
-                                                      + sip_degisti
-                                                      + "','"
-                                                      + sip_checksum
-                                                      + "','"
-                                                      + sip_create_user
-                                                      + "','"
-                                                      + User_create_date
-                                                      + "','"
-                                                      + sip_lastup_user
-                                                      + "','"
-                                                      + User_lastup_date
-                                                      + "','"
-                                                      + sip_special1
-                                                      + "','"
-                                                      + sip_special2
-                                                      + "','"
-                                                      + sip_special3
-                                                      + "','"
-                                                      + sip_firmano
-                                                      + "','"
-                                                      + sip_subeno
-                                                      + "','"
-                                                      + sip_tarih
-                                                      + "')", baglanti);
-                    komut.ExecuteNonQuery();
+                    baglanti.Close();
                 }
-                baglanti.Close();
+                baglanti.Open();
+                bool first = true;
+                foreach (var item in customerList)
+                {
+                    
+                    string sqlQuery = @"INSERT INTO [dbo].[SIPARISLER] 
+                                    ([sip_Guid], [sip_DBCno], [sip_SpecRECno], [sip_iptal], [sip_fileid], [sip_hidden], [sip_kilitli], 
+                                    [sip_degisti], [sip_checksum], [sip_create_user], [sip_create_date], [sip_lastup_user], [sip_lastup_date], 
+                                    [sip_special1], [sip_special2], [sip_special3], [sip_firmano], [sip_subeno], [sip_tarih], [sip_teslim_tarih], 
+                                    [sip_tip], [sip_cins], [sip_evrakno_seri], [sip_evrakno_sira], [sip_satirno], [sip_belgeno], [sip_belge_tarih], 
+                                    [sip_satici_kod], [sip_musteri_kod], [sip_stok_kod], [sip_b_fiyat], [sip_miktar], [sip_birim_pntr], 
+                                    [sip_teslim_miktar], [sip_tutar], [sip_iskonto_1], [sip_iskonto_2], [sip_iskonto_3], [sip_iskonto_4], 
+                                    [sip_iskonto_5], [sip_iskonto_6], [sip_masraf_1], [sip_masraf_2], [sip_masraf_3], [sip_masraf_4], 
+                                    [sip_vergi_pntr], [sip_vergi], [sip_masvergi_pntr], [sip_masvergi], [sip_opno], [sip_aciklama], 
+                                    [sip_aciklama2], [sip_depono], [sip_OnaylayanKulNo], [sip_vergisiz_fl], [sip_kapat_fl], [sip_promosyon_fl], 
+                                    [sip_cari_sormerk], [sip_stok_sormerk], [sip_cari_grupno], [sip_doviz_cinsi], [sip_doviz_kuru], 
+                                    [sip_alt_doviz_kuru], [sip_adresno], [sip_teslimturu], [sip_cagrilabilir_fl], [sip_prosip_uid], 
+                                    [sip_iskonto1], [sip_iskonto2], [sip_iskonto3], [sip_iskonto4], [sip_iskonto5], [sip_iskonto6], 
+                                    [sip_masraf1], [sip_masraf2], [sip_masraf3], [sip_masraf4], [sip_isk1], [sip_isk2], [sip_isk3], 
+                                    [sip_isk4], [sip_isk5], [sip_isk6], [sip_mas1], [sip_mas2], [sip_mas3], [sip_mas4], [sip_Exp_Imp_Kodu], 
+                                    [sip_kar_orani], [sip_durumu], [sip_stal_uid], [sip_planlananmiktar], [sip_teklif_uid], [sip_parti_kodu], 
+                                    [sip_lot_no], [sip_projekodu], [sip_fiyat_liste_no], [sip_Otv_Pntr], [sip_Otv_Vergi], [sip_otvtutari], 
+                                    [sip_OtvVergisiz_Fl], [sip_paket_kod], [sip_Rez_uid], [sip_harekettipi], [sip_yetkili_uid], 
+                                    [sip_kapatmanedenkod], [sip_gecerlilik_tarihi], [sip_onodeme_evrak_tip], [sip_onodeme_evrak_seri], 
+                                    [sip_onodeme_evrak_sira], [sip_rezervasyon_miktari], [sip_rezerveden_teslim_edilen], 
+                                    [sip_HareketGrupKodu1], [sip_HareketGrupKodu2], [sip_HareketGrupKodu3], [sip_Olcu1], [sip_Olcu2], 
+                                    [sip_Olcu3], [sip_Olcu4], [sip_Olcu5], [sip_FormulMiktarNo], [sip_FormulMiktar], 
+                                    [sip_satis_fiyat_doviz_cinsi], [sip_satis_fiyat_doviz_kuru], [sip_eticaret_kanal_kodu], 
+                                    [sip_Tevkifat_turu], [sip_otv_tevkifat_turu], [sip_otv_tevkifat_tutari])
+                                    VALUES 
+                                    (@sip_Guid, @sip_DBCno, @sip_SpecRECno, @sip_iptal, @sip_fileid, @sip_hidden, @sip_kilitli, 
+                                    @sip_degisti, @sip_checksum, @sip_create_user, @sip_create_date, @sip_lastup_user, @sip_lastup_date, 
+                                    @sip_special1, @sip_special2, @sip_special3, @sip_firmano, @sip_subeno, @sip_tarih, @sip_teslim_tarih, 
+                                    @sip_tip, @sip_cins, @sip_evrakno_seri, @sip_evrakno_sira, @sip_satirno, @sip_belgeno, @sip_belge_tarih, 
+                                    @sip_satici_kod, @sip_musteri_kod, @sip_stok_kod, @sip_b_fiyat, @sip_miktar, @sip_birim_pntr, 
+                                    @sip_teslim_miktar, @sip_tutar, @sip_iskonto_1, @sip_iskonto_2, @sip_iskonto_3, @sip_iskonto_4, 
+                                    @sip_iskonto_5, @sip_iskonto_6, @sip_masraf_1, @sip_masraf_2, @sip_masraf_3, @sip_masraf_4, 
+                                    @sip_vergi_pntr, @sip_vergi, @sip_masvergi_pntr, @sip_masvergi, @sip_opno, @sip_aciklama, 
+                                    @sip_aciklama2, @sip_depono, @sip_OnaylayanKulNo, @sip_vergisiz_fl, @sip_kapat_fl, @sip_promosyon_fl, 
+                                    @sip_cari_sormerk, @sip_stok_sormerk, @sip_cari_grupno, @sip_doviz_cinsi, @sip_doviz_kuru, 
+                                    @sip_alt_doviz_kuru, @sip_adresno, @sip_teslimturu, @sip_cagrilabilir_fl, @sip_prosip_uid, 
+                                    @sip_iskonto1, @sip_iskonto2, @sip_iskonto3, @sip_iskonto4, @sip_iskonto5, @sip_iskonto6, 
+                                    @sip_masraf1, @sip_masraf2, @sip_masraf3, @sip_masraf4, @sip_isk1, @sip_isk2, @sip_isk3, 
+                                    @sip_isk4, @sip_isk5, @sip_isk6, @sip_mas1, @sip_mas2, @sip_mas3, @sip_mas4, @sip_Exp_Imp_Kodu, 
+                                    @sip_kar_orani, @sip_durumu, @sip_stal_uid, @sip_planlananmiktar, @sip_teklif_uid, @sip_parti_kodu, 
+                                    @sip_lot_no, @sip_projekodu, @sip_fiyat_liste_no, @sip_Otv_Pntr, @sip_Otv_Vergi, @sip_otvtutari, 
+                                    @sip_OtvVergisiz_Fl, @sip_paket_kod, @sip_Rez_uid, @sip_harekettipi, @sip_yetkili_uid, 
+                                    @sip_kapatmanedenkod, @sip_gecerlilik_tarihi, @sip_onodeme_evrak_tip, @sip_onodeme_evrak_seri, 
+                                    @sip_onodeme_evrak_sira, @sip_rezervasyon_miktari, @sip_rezerveden_teslim_edilen, 
+                                    @sip_HareketGrupKodu1, @sip_HareketGrupKodu2, @sip_HareketGrupKodu3, @sip_Olcu1, @sip_Olcu2, 
+                                    @sip_Olcu3, @sip_Olcu4, @sip_Olcu5, @sip_FormulMiktarNo, @sip_FormulMiktar, 
+                                    @sip_satis_fiyat_doviz_cinsi, @sip_satis_fiyat_doviz_kuru, @sip_eticaret_kanal_kodu, 
+                                    @sip_Tevkifat_turu, @sip_otv_tevkifat_turu, @sip_otv_tevkifat_tutari)";
+
+                    using (SqlCommand command = new SqlCommand(sqlQuery, baglanti))
+                    {
+                        // Set parameter values from the SiparislerData object
+                        command.Parameters.AddWithValue("@sip_Guid", item.sip_Guid);
+                        command.Parameters.AddWithValue("@sip_DBCno", 0); 
+                        command.Parameters.AddWithValue("@sip_SpecRECno", 0);
+                        command.Parameters.AddWithValue("@sip_iptal", false);
+                        command.Parameters.AddWithValue("@sip_fileid", 21);
+                        command.Parameters.AddWithValue("@sip_hidden", false);
+                        command.Parameters.AddWithValue("@sip_kilitli", false);
+                        command.Parameters.AddWithValue("@sip_degisti", false);
+                        command.Parameters.AddWithValue("@sip_checksum", 0);
+                        command.Parameters.AddWithValue("@sip_create_user", textBox2.Text);
+                        command.Parameters.AddWithValue("@sip_create_date", DateTime.Now);
+                        command.Parameters.AddWithValue("@sip_lastup_user", textBox5.Text);
+                        command.Parameters.AddWithValue("@sip_lastup_date", dateTimePicker1.Value);
+                        command.Parameters.AddWithValue("@sip_special1", string.Empty);
+                        command.Parameters.AddWithValue("@sip_special2", string.Empty);
+                        command.Parameters.AddWithValue("@sip_special3", string.Empty);
+                        command.Parameters.AddWithValue("@sip_firmano", 0);
+                        command.Parameters.AddWithValue("@sip_subeno", 0);
+                        command.Parameters.AddWithValue("@sip_tarih", DateTime.Now);
+                        command.Parameters.AddWithValue("@sip_teslim_tarih", DateTime.Now);
+                        command.Parameters.AddWithValue("@sip_tip", 0);
+                        command.Parameters.AddWithValue("@sip_cins", 0);
+                        command.Parameters.AddWithValue("@sip_evrakno_seri", item.IKN);
+                        command.Parameters.AddWithValue("@sip_evrakno_sira", item.sip_evrakno_sira);
+                        command.Parameters.AddWithValue("@sip_satirno", item.sip_satirno);
+                        command.Parameters.AddWithValue("@sip_belgeno", item.SiparisNo);
+                        command.Parameters.AddWithValue("@sip_belge_tarih", DateTime.Now);
+                        command.Parameters.AddWithValue("@sip_satici_kod", textBox3.Text);
+                        command.Parameters.AddWithValue("@sip_musteri_kod", "120.02.001");
+                        command.Parameters.AddWithValue("@sip_stok_kod", item.StokKod);
+                        command.Parameters.AddWithValue("@sip_b_fiyat", item.TeklifTutari);
+                        command.Parameters.AddWithValue("@sip_miktar", item.Miktar);
+                        command.Parameters.AddWithValue("@sip_birim_pntr", 1);
+                        command.Parameters.AddWithValue("@sip_teslim_miktar", item.Miktar);
+                        command.Parameters.AddWithValue("@sip_tutar", item.sip_tutar);
+                        command.Parameters.AddWithValue("@sip_iskonto_1", 0);
+                        command.Parameters.AddWithValue("@sip_iskonto_2", 0);
+                        command.Parameters.AddWithValue("@sip_iskonto_3", 0);
+                        command.Parameters.AddWithValue("@sip_iskonto_4", 0);
+                        command.Parameters.AddWithValue("@sip_iskonto_5", 0);
+                        command.Parameters.AddWithValue("@sip_iskonto_6", 0);
+                        command.Parameters.AddWithValue("@sip_masraf_1", 0);
+                        command.Parameters.AddWithValue("@sip_masraf_2", 0);
+                        command.Parameters.AddWithValue("@sip_masraf_3", 0);
+                        command.Parameters.AddWithValue("@sip_masraf_4", 0);
+                        command.Parameters.AddWithValue("@sip_vergi_pntr", 3);
+                        command.Parameters.AddWithValue("@sip_vergi", item.sip_vergi);
+                        command.Parameters.AddWithValue("@sip_masvergi_pntr", 0);
+                        command.Parameters.AddWithValue("@sip_masvergi", 0);
+                        command.Parameters.AddWithValue("@sip_opno", 0);
+                        command.Parameters.AddWithValue("@sip_aciklama", item.MusteriAdi);
+                        command.Parameters.AddWithValue("@sip_aciklama2", string.Empty);
+                        command.Parameters.AddWithValue("@sip_depono", 4);
+                        command.Parameters.AddWithValue("@sip_OnaylayanKulNo", 0);
+                        command.Parameters.AddWithValue("@sip_vergisiz_fl", false);
+                        command.Parameters.AddWithValue("@sip_kapat_fl", false);
+                        command.Parameters.AddWithValue("@sip_promosyon_fl", false);
+                        command.Parameters.AddWithValue("@sip_cari_sormerk", item.SorMekKod);
+                        command.Parameters.AddWithValue("@sip_stok_sormerk", item.SorMekKod);
+                        command.Parameters.AddWithValue("@sip_cari_grupno", 0);
+                        command.Parameters.AddWithValue("@sip_doviz_cinsi", 0);
+                        command.Parameters.AddWithValue("@sip_doviz_kuru", 1);
+                        command.Parameters.AddWithValue("@sip_alt_doviz_kuru", textBox4.Text);
+                        command.Parameters.AddWithValue("@sip_adresno", 1);
+                        command.Parameters.AddWithValue("@sip_teslimturu", string.Empty);
+                        command.Parameters.AddWithValue("@sip_cagrilabilir_fl", true);
+                        command.Parameters.AddWithValue("@sip_prosip_uid", Guid.Empty);
+                        command.Parameters.AddWithValue("@sip_iskonto1", 0);
+                        command.Parameters.AddWithValue("@sip_iskonto2", 1);
+                        command.Parameters.AddWithValue("@sip_iskonto3", 1);
+                        command.Parameters.AddWithValue("@sip_iskonto4", 1);
+                        command.Parameters.AddWithValue("@sip_iskonto5", 1);
+                        command.Parameters.AddWithValue("@sip_iskonto6", 1);
+                        command.Parameters.AddWithValue("@sip_masraf1", 1);
+                        command.Parameters.AddWithValue("@sip_masraf2", 1);
+                        command.Parameters.AddWithValue("@sip_masraf3", 1);
+                        command.Parameters.AddWithValue("@sip_masraf4", 1);
+                        command.Parameters.AddWithValue("@sip_isk1", false);
+                        command.Parameters.AddWithValue("@sip_isk2", false);
+                        command.Parameters.AddWithValue("@sip_isk3", false);
+                        command.Parameters.AddWithValue("@sip_isk4", false);
+                        command.Parameters.AddWithValue("@sip_isk5", false);
+                        command.Parameters.AddWithValue("@sip_isk6", false);
+                        command.Parameters.AddWithValue("@sip_mas1", false);
+                        command.Parameters.AddWithValue("@sip_mas2", false);
+                        command.Parameters.AddWithValue("@sip_mas3", false);
+                        command.Parameters.AddWithValue("@sip_mas4", false);
+                        command.Parameters.AddWithValue("@sip_Exp_Imp_Kodu", string.Empty);
+                        command.Parameters.AddWithValue("@sip_kar_orani", 0);
+                        command.Parameters.AddWithValue("@sip_durumu", 0);
+                        command.Parameters.AddWithValue("@sip_stal_uid", Guid.Empty);
+                        command.Parameters.AddWithValue("@sip_planlananmiktar", 0);
+                        command.Parameters.AddWithValue("@sip_teklif_uid", Guid.Empty);
+                        command.Parameters.AddWithValue("@sip_parti_kodu", string.Empty);
+                        command.Parameters.AddWithValue("@sip_lot_no", 0);
+                        command.Parameters.AddWithValue("@sip_projekodu", string.Empty);
+                        command.Parameters.AddWithValue("@sip_fiyat_liste_no", 0);
+                        command.Parameters.AddWithValue("@sip_Otv_Pntr", 0);
+                        command.Parameters.AddWithValue("@sip_Otv_Vergi", 0);
+                        command.Parameters.AddWithValue("@sip_otvtutari", 0);
+                        command.Parameters.AddWithValue("@sip_OtvVergisiz_Fl", 0);
+                        command.Parameters.AddWithValue("@sip_paket_kod", string.Empty);
+                        command.Parameters.AddWithValue("@sip_Rez_uid", Guid.Empty);
+                        command.Parameters.AddWithValue("@sip_harekettipi", 0);
+                        command.Parameters.AddWithValue("@sip_yetkili_uid", Guid.Empty);
+                        command.Parameters.AddWithValue("@sip_kapatmanedenkod", string.Empty);
+                        command.Parameters.AddWithValue("@sip_gecerlilik_tarihi", "1899/12/30 00:00:00");
+                        command.Parameters.AddWithValue("@sip_onodeme_evrak_tip", 0);
+                        command.Parameters.AddWithValue("@sip_onodeme_evrak_seri", string.Empty);
+                        command.Parameters.AddWithValue("@sip_onodeme_evrak_sira", 0);
+                        command.Parameters.AddWithValue("@sip_rezervasyon_miktari", 0);
+                        command.Parameters.AddWithValue("@sip_rezerveden_teslim_edilen", 0);
+                        command.Parameters.AddWithValue("@sip_HareketGrupKodu1", string.Empty);
+                        command.Parameters.AddWithValue("@sip_HareketGrupKodu2", string.Empty);
+                        command.Parameters.AddWithValue("@sip_HareketGrupKodu3", string.Empty);
+                        command.Parameters.AddWithValue("@sip_Olcu1", 0);
+                        command.Parameters.AddWithValue("@sip_Olcu2", 0);
+                        command.Parameters.AddWithValue("@sip_Olcu3", 0);
+                        command.Parameters.AddWithValue("@sip_Olcu4", 0);
+                        command.Parameters.AddWithValue("@sip_Olcu5", 0);
+                        command.Parameters.AddWithValue("@sip_FormulMiktarNo", 0);
+                        command.Parameters.AddWithValue("sip_FormulMiktar", 0);
+                        command.Parameters.AddWithValue("sip_satis_fiyat_doviz_cinsi", 0);
+                        command.Parameters.AddWithValue("sip_satis_fiyat_doviz_kuru", 0);
+                        command.Parameters.AddWithValue("sip_eticaret_kanal_kodu", string.Empty);
+                        command.Parameters.AddWithValue("sip_Tevkifat_turu", 0);
+                        command.Parameters.AddWithValue("sip_otv_tevkifat_turu", 0);
+                        command.Parameters.AddWithValue("sip_otv_tevkifat_tutari", 0);
+                        // Set the remaining parameters in a similar manner
+                        if (first)
+                        {
+                            command.ExecuteNonQuery();
+                            first = false;
+                        }
+                    }
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 MessageBox.Show("HATA VAR!!!");
             }
             finally
             {
+                baglanti.Close();
                 MessageBox.Show("BAÞARI ÝLE KAYDEDÝLDÝ...");
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            da = new SqlDataAdapter("Select sto_kod,bar_kodu from  stoklar left join BARKOD_TANIMLARI on  bar_stokkodu=sto_kod where bar_master=1 ", baglanti);
-            ds = new DataSet();
-            baglanti.Open();
-            da.Fill(ds, "stoklar");
-            dataGridView2.DataSource = ds.Tables["stoklar"];
-            baglanti.Close();
 
-
-
-
-        }
         string sto_kod;
+
         private void button4_Click(object sender, EventArgs e)
         {
-            string sip_Rez_uid = "00000000 - 0000 - 0000 - 0000 - 000000000000";
-            int sip_harekettipi = 0;
-            string sip_yetkili_uid = "00000000 - 0000 - 0000 - 0000 - 000000000000";
-            string sip_kapatmanedenkod = "";
-            DateTime sip_gecerlilik_tarihi = DateTime.Now;
-            int sip_onodeme_evrak_tip = 0;
-            string sip_onodeme_evrak_seri = "";
-            int sip_onodeme_evrak_sira = 0;
-            int sip_rezervasyon_miktari = 0;
-            int sip_rezerveden_teslim_edilen = 0;
-            string sip_HareketGrupKodu1 = "";
-            string sip_HareketGrupKodu2 = "";
-            string sip_HareketGrupKodu3 = "";
-            int sip_Olcu1 = 0;
-            int sip_Olcu2 = 0;
-            int sip_Olcu3 = 0;
-            int sip_Olcu4 = 0;
-            int sip_Olcu5 = 0;
-            int sip_FormulMiktarNo = 0;
-            int sip_FormulMiktar = 0;
-            int sip_satis_fiyat_doviz_cinsi = 0;
-            int sip_satis_fiyat_doviz_kuru = 0;
-            string sip_eticaret_kanal_kodu = "";
-            int sip_Tevkifat_turu = 0;
-            int sip_otv_tevkifat_turu = 0;
-            int sip_otv_tevkifat_tutari = 0;
-            string sip_projekodu = "";
-            int sip_fiyat_liste_no = 0;
-            int sip_Otv_Pntr = 0;
-            int sip_Otv_Vergi = 0;
-            int sip_otvtutari = 0;
-            int sip_OtvVergisiz_Fl = 0;
-            string sip_paket_kod = "";
-            int sip_lot_no = 0;
-            string sip_parti_kodu = "";
-            string sip_stal_uid = "00000000 - 0000 - 0000 - 0000 - 000000000000";
-            int sip_planlananmiktar = 0;
-            string sip_teklif_uid = "00000000 - 0000 - 0000 - 0000 - 000000000000";
-            string sip_Exp_Imp_Kodu = "";
-            int sip_kar_orani = 0;
-            int sip_durumu = 0;
-            int sip_isk1 = 0;
-            int sip_isk2 = 0;
-            int sip_isk3 = 0;
-            int sip_isk4 = 0;
-            int sip_isk5 = 0;
-            int sip_isk6 = 0;
-            int sip_mas1 = 0;
-            int sip_mas2 = 0;
-            int sip_mas3 = 0;
-            int sip_mas4 = 0;
-            int sip_iskonto1 = 0;
-            int sip_iskonto2 = 1;
-            int sip_iskonto3 = 1;
-            int sip_iskonto4 = 1;
-            int sip_iskonto5 = 1;
-            int sip_iskonto6 = 1;
-            int sip_masraf1 = 0;
-            int sip_masraf2 = 0;
-            int sip_masraf3 = 0;
-            int sip_masraf4 = 0;
-            string sip_prosip_uid = "00000000 - 0000 - 0000 - 0000 - 000000000000";
-            int sip_adresno = 1;
-            string sip_teslimturu = "";
-            int sip_cagrilabilir_fl = 0;
-            //string sip_cari_sormerk = "";
-            string sip_stok_sormerk = "";
-            int sip_cari_grupno = 0;
-            int sip_doviz_cinsi = 0;
-            int sip_doviz_kuru = 1;
-            int sip_OnaylayanKulNo = 0;
-            int sip_vergisiz_fl = 0;
-            int sip_kapat_fl = 0;
-            int sip_promosyon_fl = 0;
-            int sip_depono = 4;
-            string sip_aciklama2 = "";
-            int sip_opno = -90;
-            int sip_masvergi_pntr = 0;
-            int sip_masvergi = 0;
-            int sip_vergi_pntr = 3;
-            int sip_masraf_1 = 0;
-            int sip_masraf_2 = 0;
-            int sip_masraf_3 = 0;
-            int sip_masraf_4 = 0;
-            int sip_iskonto_1 = 0;
-            int sip_iskonto_2 = 0;
-            int sip_iskonto_3 = 0;
-            int sip_iskonto_4 = 0;
-            int sip_iskonto_5 = 0;
-            int sip_iskonto_6 = 0;
-            int sip_birim_pntr = 1;
-            int sip_cins = 0;
-            int sip_tip = 0;
-            int sip_firmano = 0;
-            int sip_subeno = 0;
-            string sip_special1 = "";
-            string sip_special2 = "";
-            string sip_special3 = "";
-            int sip_kilitli = 0;
-            int sip_degisti = 0;
-            int sip_checksum = 0;
-            int sip_hidden = 0;
-            int sip_iptal = 0;
-            int sip_SpecRECno = 0;
-            int sip_DBCno = 0;
-            int sipField = 21;
-            double sip_alt_doviz_kuru = Convert.ToDouble(textBox4.Text);
-            DateTime User_create_date = DateTime.Now;
-            DateTime User_lastup_date = dateTimePicker1.Value;
-            int sip_create_user = Convert.ToInt32(textBox2.Text);
-            int sip_lastup_user = Convert.ToInt32(textBox5.Text);
-            DateTime sip_tarih = DateTime.Now;
-            DateTime sip_teslim_tarih = DateTime.Now;
-            DateTime sip_belge_tarih = DateTime.Now;
-            string sip_satici_kod = textBox3.Text.ToString();
-            string SrmMrkz1 = textBox7.Text.ToString();
-
-            // DataGridView1 ve DataGridView2'deki verileri yükleyin
-            // DataGridView1'deki "barkod" sütunu DataGridView2'deki "barkod" sütunuyla eþleþmelidir
-            // DataGridView2'deki "stok kodu" sütunu DataGridView3'deki "stok kodu" sütunuyla eþleþmelidir
-            string previousValue = Convert.ToString(dataGridView1.Rows[0].Cells[3].Value); // sütundaki ilk hücrenin deðerini al
-
-            int arttýr = 0;
-            int Sýrano = 0;
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            if (customerList.Count == 0)
             {
-                string currentValue = Convert.ToString(dataGridView1.Rows[i].Cells[3].Value); // sütundaki diðer hücrelerin deðerini al
-                var MusteriNo = Convert.ToString(dataGridView1.Rows[i].Cells[2].Value); // sütundaki diðer hücrelerin deðerini al
-                if (currentValue != previousValue) // deðerler farklýysa
-                {
-                    arttýr++;
-                    Sýrano = 0;
-                }
-                else if (currentValue == previousValue)
-                {
-                    Sýrano++;
-                }
-                previousValue = currentValue; // bir sonraki hücre için önceki hücrenin deðerini sakla
-                string barcode = Convert.ToString(dataGridView1.Rows[i].Cells[8].Value);
-
-                for (int j = 0; j < dataGridView2.Rows.Count; j++)
-                {
-
-                    if (barcode == Convert.ToString(dataGridView2.Rows[j].Cells[1].Value))
-                    {
-                        // Eþleþen bir barkod bulundu
-                        // DataGridView2'deki stok kodunu alýn ve DataGridView3'e yazýn
-                        string stockCode = Convert.ToString(dataGridView2.Rows[j].Cells[0].Value);
-                        string aciklama = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value);
-                        int miktar = Convert.ToInt32(dataGridView1.Rows[i].Cells[11].Value);
-                        int sip_teslim_miktar = Convert.ToInt32(dataGridView1.Rows[i].Cells[11].Value);
-                        int tutar = Convert.ToInt32(dataGridView1.Rows[i].Cells[15].Value);
-                        string sip_belgeno = Convert.ToString(dataGridView1.Rows[i].Cells[13].Value);
-                        string sip_evrakno_seri = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value);
-                        int Toplamtutar = Convert.ToInt32(miktar * tutar);
-                        double sip_vergi = Convert.ToDouble(Math.Round(Toplamtutar * 0.08, 2));
-                       
-
-                        for (int k = 0; k < dataGridView4.Rows.Count; k++)
-                        {
-                            if (MusteriNo == Convert.ToString(dataGridView4.Rows[k].Cells[2].Value))
-                            {
-                                var sip_cari_sormerk = Convert.ToString(dataGridView4.Rows[k].Cells[0].Value);
-                            }
-
-                        }
-                        dataGridView3.Rows.Add(Guid.NewGuid(),
-                                               stockCode,
-                                               User_create_date,
-                                               User_lastup_date,
-                                               SrmMrkz1,
-                                               miktar,
-                                               tutar,
-                                               Toplamtutar,
-                                               sip_evrakno_seri,
-                                               arttýr,
-                                               Sýrano,
-                                               sip_belgeno,
-                                               sip_satici_kod,
-                                               aciklama,
-                                               sip_aciklama2,
-                                               sipField,
-                                               sip_DBCno,
-                                               sip_SpecRECno,
-                                               sip_iptal,
-                                               sip_hidden,
-                                               sip_kilitli,
-                                               sip_degisti,
-                                               sip_checksum,
-                                               sip_special1,
-                                               sip_special2,
-                                               sip_special3,
-                                               sip_firmano,
-                                               sip_subeno,
-                                               sip_tarih,
-                                               sip_teslim_tarih,
-                                               sip_tip,
-                                               sip_cins,
-                                               sip_belge_tarih,
-                                               sip_birim_pntr,
-                                               sip_teslim_miktar,
-                                               sip_iskonto_1,
-                                               sip_iskonto_2,
-                                               sip_iskonto_3,
-                                               sip_iskonto_4,
-                                               sip_iskonto_5,
-                                               sip_iskonto_6,
-                                               sip_masraf_1,
-                                               sip_masraf_2,
-                                               sip_masraf_3,
-                                               sip_masraf_4,
-                                               sip_vergi_pntr,
-                                               sip_vergi,
-                                               sip_masvergi_pntr,
-                                               sip_masvergi,
-                                               sip_opno,
-                                               sip_depono,
-                                               sip_OnaylayanKulNo,
-                                               sip_vergisiz_fl,
-                                               sip_kapat_fl,
-                                               sip_promosyon_fl,
-                                               sip_cari_sormerk,
-                                               sip_stok_sormerk,
-                                               sip_cari_grupno,
-                                               sip_doviz_cinsi,
-                                               sip_doviz_kuru,
-                                               sip_alt_doviz_kuru,
-                                               sip_adresno,
-                                               sip_teslimturu,
-                                               sip_cagrilabilir_fl,
-                                               sip_prosip_uid,
-                                               sip_iskonto1,
-                                               sip_iskonto2,
-                                               sip_iskonto3,
-                                               sip_iskonto4,
-                                               sip_iskonto5,
-                                               sip_iskonto6,
-                                               sip_masraf1,
-                                               sip_masraf2,
-                                               sip_masraf3,
-                                               sip_masraf4,
-                                               sip_isk1,
-                                               sip_isk2,
-                                               sip_isk3,
-                                               sip_isk4,
-                                               sip_isk5,
-                                               sip_isk6,
-                                               sip_mas1,
-                                               sip_mas2,
-                                               sip_mas3,
-                                               sip_mas4,
-                                               sip_Exp_Imp_Kodu,
-                                               sip_kar_orani,
-                                               sip_durumu,
-                                               sip_stal_uid,
-                                               sip_planlananmiktar,
-                                               sip_teklif_uid,
-                                               sip_parti_kodu,
-                                               sip_lot_no,
-                                               sip_projekodu,
-                                               sip_fiyat_liste_no,
-                                               sip_Otv_Pntr,
-                                               sip_Otv_Vergi,
-                                               sip_otvtutari,
-                                               sip_OtvVergisiz_Fl,
-                                               sip_paket_kod,
-                                               sip_Rez_uid,
-                                               sip_harekettipi,
-                                               sip_yetkili_uid,
-                                               sip_kapatmanedenkod,
-                                               sip_gecerlilik_tarihi,
-                                               sip_onodeme_evrak_tip,
-                                               sip_onodeme_evrak_seri,
-                                               sip_onodeme_evrak_sira,
-                                               sip_rezervasyon_miktari,
-                                               sip_rezerveden_teslim_edilen,
-                                               sip_HareketGrupKodu1,
-                                               sip_HareketGrupKodu2,
-                                               sip_HareketGrupKodu3,
-                                               sip_Olcu1,
-                                               sip_Olcu2,
-                                               sip_Olcu3,
-                                               sip_Olcu4,
-                                               sip_Olcu5,
-                                               sip_FormulMiktarNo,
-                                               sip_FormulMiktar,
-                                               sip_satis_fiyat_doviz_cinsi,
-                                               sip_satis_fiyat_doviz_kuru,
-                                               sip_eticaret_kanal_kodu,
-                                               sip_Tevkifat_turu,
-                                               sip_otv_tevkifat_turu,
-                                               sip_otv_tevkifat_tutari,
-                                               sip_create_user,
-                                               sip_lastup_user);
-
-                    }
-                }
+                MessageBox.Show("Müþteri listesini yükleyiniz.");
+                return;
             }
+            if (productList.Count == 0)
+            {
+                MessageBox.Show("Ürün stok listesini yükleyiniz.");
+                return;
+            }
+            int counter = 1;
+            int sayac = 1;
+            string previousMusteriNo = null;
+            int previousSip_evrakno_sira = 0;
+            foreach (var item in customerList)
+            {
+                var musteri = productList.FirstOrDefault(x => x.MusteriNo == item.MusteriNo);
+                if (musteri == null)
+                    continue;
+                item.SorMekKod = musteri.Kodu;
+                if (item.MusteriNo != previousMusteriNo)
+                {
+                    item.sip_evrakno_sira = counter;
+                    counter++;
+                }
+                else
+                {
+                    item.sip_evrakno_sira = counter;
+
+                }
+                if (item.sip_evrakno_sira == previousSip_evrakno_sira)
+                {
+                    item.sip_satirno = sayac;
+                    sayac++;
+                }
+                else if (item.sip_evrakno_sira != previousSip_evrakno_sira)
+                {
+                    item.sip_satirno = 0; // Reset sip_satirno to 1 for a new sip_evrakno_sira
+                    sayac = 1; // Reset sayac to 2 for a new sip_evrakno_sira
+                }
+                previousMusteriNo = item.MusteriNo;
+                previousSip_evrakno_sira = item.sip_evrakno_sira;
+                double miktarInt, tutarInt;
+
+                if (double.TryParse(item.Miktar, out miktarInt) && double.TryParse(item.TeklifTutari, out tutarInt))
+                {
+                    item.sip_tutar = miktarInt * tutarInt;
+                }
+                else
+                {
+                    Console.WriteLine("Geçersiz miktar veya tutar.");
+                }
+                int index = item.IKN.IndexOf("/"); // '/' karakterinin indeksini bulur
+
+                if (index != -1)
+                {
+                    string sonrasý = item.IKN.Substring(index + 1); // '/' karakterinden sonrasýný alýr
+                    item.IKN = sonrasý + "-K1";
+                }
+
+            }
+            customerList = customerList.Where(x => !string.IsNullOrWhiteSpace(x.SorMekKod)).ToList();
+
+            List<string> barkods = customerList.Select(x => x.Barkod).ToList();
+            string combinedString = "'" + string.Join("','", barkods) + "'";
+            da = new SqlDataAdapter("Select sto_kod,bar_kodu from  stoklar left join BARKOD_TANIMLARI on  bar_stokkodu=sto_kod where bar_master=1 and bar_kodu in (" + combinedString + ") ", baglanti);
+            DataTable dataTable = new DataTable();
+            baglanti.Open();
+            da.Fill(dataTable); // object referansi degiskene bise atilmamissa gelir. = new yapilmamis yani. koda tek atmisim mk xd
+            baglanti.Close();
+            var stokList = DataTableConverter.ConvertTo<Stok>(dataTable);
+
+            foreach (var item in customerList)
+            {
+                item.StokKod = stokList.FirstOrDefault(x => x.Barkod == item.Barkod)?.StokKodu ?? string.Empty;
+
+            }
+            dataGridView1.DataSource = customerList;
+            // customerList datagridviewe
+            return;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            dataGridView4.Rows.Clear();
+            //dataGridView4.Rows.Clear();
             try
             {
                 // Dosya seçme penceresi açmak için
@@ -663,8 +411,9 @@ namespace OtomatikSiparisGirisi
                 da.Fill(data);
 
                 //DataGrid'imizin kaynaðýný oluþturduðumuz DataTable ile dolduruyoruz.
-                dataGridView4.DataSource = data;
-
+                // dataGridView4.DataSource = data;
+                productList = DataTableConverter.ConvertTo<Product>(data);
+                MessageBox.Show("Ürün Listesi Yüklendi");
             }
             catch (Exception ex)
             {
@@ -672,5 +421,7 @@ namespace OtomatikSiparisGirisi
                 MessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }
