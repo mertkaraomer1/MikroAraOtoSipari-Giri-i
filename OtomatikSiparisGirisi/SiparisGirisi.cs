@@ -189,7 +189,7 @@ namespace OtomatikSiparisGirisi
                         command.Parameters.AddWithValue("@sip_vergi", item.sip_vergi);
                         command.Parameters.AddWithValue("@sip_masvergi_pntr", 0);
                         command.Parameters.AddWithValue("@sip_masvergi", 0);
-                        command.Parameters.AddWithValue("@sip_opno", 0);
+                        command.Parameters.AddWithValue("@sip_opno", -90);
                         command.Parameters.AddWithValue("@sip_aciklama", item.MusteriAdi);
                         command.Parameters.AddWithValue("@sip_aciklama2", string.Empty);
                         command.Parameters.AddWithValue("@sip_depono", 4);
@@ -236,7 +236,7 @@ namespace OtomatikSiparisGirisi
                         command.Parameters.AddWithValue("@sip_parti_kodu", string.Empty);
                         command.Parameters.AddWithValue("@sip_lot_no", 0);
                         command.Parameters.AddWithValue("@sip_projekodu", string.Empty);
-                        command.Parameters.AddWithValue("@sip_fiyat_liste_no", 0);
+                        command.Parameters.AddWithValue("@sip_fiyat_liste_no", 1);
                         command.Parameters.AddWithValue("@sip_Otv_Pntr", 0);
                         command.Parameters.AddWithValue("@sip_Otv_Vergi", 0);
                         command.Parameters.AddWithValue("@sip_otvtutari", 0);
