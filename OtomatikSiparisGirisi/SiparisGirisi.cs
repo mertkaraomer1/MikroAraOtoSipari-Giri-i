@@ -87,7 +87,7 @@ namespace OtomatikSiparisGirisi
                 bool first = true;
                 foreach (var item in customerList)
                 {
-                    
+
                     string sqlQuery = @"INSERT INTO [dbo].[SIPARISLER] 
                                     ([sip_Guid], [sip_DBCno], [sip_SpecRECno], [sip_iptal], [sip_fileid], [sip_hidden], [sip_kilitli], 
                                     [sip_degisti], [sip_checksum], [sip_create_user], [sip_create_date], [sip_lastup_user], [sip_lastup_date], 
@@ -141,7 +141,7 @@ namespace OtomatikSiparisGirisi
                     {
                         // Set parameter values from the SiparislerData object
                         command.Parameters.AddWithValue("@sip_Guid", item.sip_Guid);
-                        command.Parameters.AddWithValue("@sip_DBCno", 0); 
+                        command.Parameters.AddWithValue("@sip_DBCno", 0);
                         command.Parameters.AddWithValue("@sip_SpecRECno", 0);
                         command.Parameters.AddWithValue("@sip_iptal", false);
                         command.Parameters.AddWithValue("@sip_fileid", 21);
@@ -167,13 +167,13 @@ namespace OtomatikSiparisGirisi
                         command.Parameters.AddWithValue("@sip_satirno", item.sip_satirno);
                         command.Parameters.AddWithValue("@sip_belgeno", item.SiparisNo);
                         command.Parameters.AddWithValue("@sip_belge_tarih", DateTime.Now);
-                        command.Parameters.AddWithValue("@sip_satici_kod", textBox3.Text);
+                        command.Parameters.AddWithValue("@sip_satici_kod",textBox3.Text);
                         command.Parameters.AddWithValue("@sip_musteri_kod", "120.02.001");
                         command.Parameters.AddWithValue("@sip_stok_kod", item.StokKod);
-                        command.Parameters.AddWithValue("@sip_b_fiyat", item.TeklifTutari);
-                        command.Parameters.AddWithValue("@sip_miktar", item.Miktar);
+                        command.Parameters.AddWithValue("@sip_b_fiyat", item.TeklifTutari.ToFloat());
+                        command.Parameters.AddWithValue("@sip_miktar", item.Miktar.ToFloat());
                         command.Parameters.AddWithValue("@sip_birim_pntr", 1);
-                        command.Parameters.AddWithValue("@sip_teslim_miktar", item.Miktar);
+                        command.Parameters.AddWithValue("@sip_teslim_miktar", item.Miktar.ToFloat());
                         command.Parameters.AddWithValue("@sip_tutar", item.sip_tutar);
                         command.Parameters.AddWithValue("@sip_iskonto_1", 0);
                         command.Parameters.AddWithValue("@sip_iskonto_2", 0);
@@ -189,7 +189,7 @@ namespace OtomatikSiparisGirisi
                         command.Parameters.AddWithValue("@sip_vergi", item.sip_vergi);
                         command.Parameters.AddWithValue("@sip_masvergi_pntr", 0);
                         command.Parameters.AddWithValue("@sip_masvergi", 0);
-                        command.Parameters.AddWithValue("@sip_opno", -90);
+                        command.Parameters.AddWithValue("@sip_opno", textBox7.Text);
                         command.Parameters.AddWithValue("@sip_aciklama", item.MusteriAdi);
                         command.Parameters.AddWithValue("@sip_aciklama2", string.Empty);
                         command.Parameters.AddWithValue("@sip_depono", 4);
@@ -268,25 +268,34 @@ namespace OtomatikSiparisGirisi
                         command.Parameters.AddWithValue("sip_Tevkifat_turu", 0);
                         command.Parameters.AddWithValue("sip_otv_tevkifat_turu", 0);
                         command.Parameters.AddWithValue("sip_otv_tevkifat_tutari", 0);
+                        //command.ExecuteNonQuery();
+                        //baglanti.Close();
                         // Set the remaining parameters in a similar manner
-                        if (first)
+                        string queryText = command.CommandText;
+
+                        // Replace the parameter placeholder with the actual value
+                        foreach (SqlParameter parameter in command.Parameters)
                         {
-                            command.ExecuteNonQuery();
-                            first = false;
+                            queryText = queryText.Replace(parameter.ParameterName, parameter.Value.ToString());
                         }
+
+                        // Print or store the query text with the actual parameter value
+                        Console.WriteLine(queryText);
+
+                        command.ExecuteNonQuery();
                     }
                 }
+                MessageBox.Show("BAÞARI ÝLE KAYDEDÝLDÝ...");
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("HATA VAR!!!");
             }
             finally
             {
                 baglanti.Close();
-                MessageBox.Show("BAÞARI ÝLE KAYDEDÝLDÝ...");
             }
+
         }
 
 
@@ -304,10 +313,11 @@ namespace OtomatikSiparisGirisi
                 MessageBox.Show("Ürün stok listesini yükleyiniz.");
                 return;
             }
-            int counter = 1;
+            int counter = 0;
             int sayac = 1;
             string previousMusteriNo = null;
             int previousSip_evrakno_sira = 0;
+
             foreach (var item in customerList)
             {
                 var musteri = productList.FirstOrDefault(x => x.MusteriNo == item.MusteriNo);
@@ -316,11 +326,13 @@ namespace OtomatikSiparisGirisi
                 item.SorMekKod = musteri.Kodu;
                 if (item.MusteriNo != previousMusteriNo)
                 {
-                    item.sip_evrakno_sira = counter;
+
                     counter++;
+                    item.sip_evrakno_sira = counter;
                 }
                 else
                 {
+
                     item.sip_evrakno_sira = counter;
 
                 }
@@ -334,6 +346,7 @@ namespace OtomatikSiparisGirisi
                     item.sip_satirno = 0; // Reset sip_satirno to 1 for a new sip_evrakno_sira
                     sayac = 1; // Reset sayac to 2 for a new sip_evrakno_sira
                 }
+
                 previousMusteriNo = item.MusteriNo;
                 previousSip_evrakno_sira = item.sip_evrakno_sira;
                 double miktarInt, tutarInt;
