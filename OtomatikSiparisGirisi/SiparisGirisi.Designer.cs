@@ -34,8 +34,6 @@
             textBox1 = new TextBox();
             label1 = new Label();
             button4 = new Button();
-            dateTimePicker1 = new DateTimePicker();
-            label3 = new Label();
             label4 = new Label();
             textBox3 = new TextBox();
             label6 = new Label();
@@ -49,6 +47,8 @@
             button5 = new Button();
             label8 = new Label();
             textBox7 = new TextBox();
+            label9 = new Label();
+            textBox8 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -111,26 +111,10 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(648, 15);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 25);
-            dateTimePicker1.TabIndex = 9;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(422, 18);
-            label3.Name = "label3";
-            label3.Size = new Size(168, 17);
-            label3.TabIndex = 12;
-            label3.Text = "Sipariş Güncelleme Tarihi:";
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(470, 55);
+            label4.Location = new Point(455, 10);
             label4.Name = "label4";
             label4.Size = new Size(97, 17);
             label4.TabIndex = 14;
@@ -138,7 +122,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(606, 52);
+            textBox3.Location = new Point(566, 7);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(51, 25);
             textBox3.TabIndex = 13;
@@ -146,7 +130,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(663, 55);
+            label6.Location = new Point(634, 10);
             label6.Name = "label6";
             label6.Size = new Size(101, 17);
             label6.TabIndex = 18;
@@ -154,7 +138,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(800, 55);
+            textBox4.Location = new Point(760, 10);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(48, 25);
             textBox4.TabIndex = 17;
@@ -169,7 +153,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(875, 15);
+            label2.Location = new Point(909, 15);
             label2.Name = "label2";
             label2.Size = new Size(169, 17);
             label2.TabIndex = 20;
@@ -178,7 +162,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(857, 52);
+            label7.Location = new Point(891, 52);
             label7.Name = "label7";
             label7.Size = new Size(183, 17);
             label7.TabIndex = 22;
@@ -221,7 +205,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(470, 95);
+            label8.Location = new Point(430, 50);
             label8.Name = "label8";
             label8.Size = new Size(122, 17);
             label8.TabIndex = 28;
@@ -229,16 +213,34 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(606, 92);
+            textBox7.Location = new Point(566, 47);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(51, 25);
             textBox7.TabIndex = 27;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(623, 50);
+            label9.Name = "label9";
+            label9.Size = new Size(112, 17);
+            label9.TabIndex = 30;
+            label9.Text = "sip_Evrakno_Seri:\r\n";
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(760, 47);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(124, 25);
+            textBox8.TabIndex = 29;
             // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 985);
+            Controls.Add(label9);
+            Controls.Add(textBox8);
             Controls.Add(label8);
             Controls.Add(textBox7);
             Controls.Add(label5);
@@ -252,8 +254,6 @@
             Controls.Add(textBox4);
             Controls.Add(label4);
             Controls.Add(textBox3);
-            Controls.Add(label3);
-            Controls.Add(dateTimePicker1);
             Controls.Add(button4);
             Controls.Add(label1);
             Controls.Add(textBox1);
@@ -279,8 +279,6 @@
         private TextBox textBox1;
         private Label label1;
         private Button button4;
-        private DateTimePicker dateTimePicker1;
-        private Label label3;
         private Label label4;
         private TextBox textBox3;
         private Label label6;
@@ -294,5 +292,7 @@
         private Button button5;
         private Label label8;
         private TextBox textBox7;
+        private Label label9;
+        private TextBox textBox8;
     }
 }
