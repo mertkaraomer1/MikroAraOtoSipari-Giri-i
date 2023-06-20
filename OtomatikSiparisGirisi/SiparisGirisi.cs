@@ -23,8 +23,8 @@ namespace OtomatikSiparisGirisi
         SqlDataAdapter daa;
         private void SiparisGirisi_Load(object sender, EventArgs e)
         {
-            baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=MikroDB_V16_ERMEDAS;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-
+            baglanti = new SqlConnection("Data Source=HPSERVER;Initial Catalog=MikroDB_V16_ERMED;User ID=SA;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //baglanti = new SqlConnection("Data Source=HPSERVER;Initial Catalog=MikroDB_V16_ERMED;User ID=SA;Password=1234;Connect Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -168,12 +168,12 @@ namespace OtomatikSiparisGirisi
                         command.Parameters.AddWithValue("@sip_belgeno", item.SiparisNo);
                         command.Parameters.AddWithValue("@sip_belge_tarih", DateTime.Now.Date);
                         command.Parameters.AddWithValue("@sip_satici_kod", textBox3.Text);
-                        command.Parameters.AddWithValue("@sip_musteri_kod", "120.02.001");
+                        command.Parameters.AddWithValue("@sip_musteri_kod", "335.04");
                         command.Parameters.AddWithValue("@sip_stok_kod", item.StokKod);
                         command.Parameters.AddWithValue("@sip_b_fiyat", item.TeklifTutari.ToFloat());
                         command.Parameters.AddWithValue("@sip_miktar", item.Miktar.ToFloat());
                         command.Parameters.AddWithValue("@sip_birim_pntr", 1);
-                        command.Parameters.AddWithValue("@sip_teslim_miktar", item.Miktar.ToFloat());
+                        command.Parameters.AddWithValue("@sip_teslim_miktar", 0);
                         command.Parameters.AddWithValue("@sip_tutar", item.sip_tutar);
                         command.Parameters.AddWithValue("@sip_iskonto_1", 0);
                         command.Parameters.AddWithValue("@sip_iskonto_2", 0);
@@ -190,7 +190,7 @@ namespace OtomatikSiparisGirisi
                         command.Parameters.AddWithValue("@sip_masvergi_pntr", 0);
                         command.Parameters.AddWithValue("@sip_masvergi", 0);
                         command.Parameters.AddWithValue("@sip_opno", textBox7.Text);
-                        command.Parameters.AddWithValue("@sip_aciklama", item.MusteriAdi);
+                        command.Parameters.AddWithValue("@sip_aciklama", "");
                         command.Parameters.AddWithValue("@sip_aciklama2", string.Empty);
                         command.Parameters.AddWithValue("@sip_depono", 4);
                         command.Parameters.AddWithValue("@sip_OnaylayanKulNo", 0);
@@ -372,7 +372,7 @@ namespace OtomatikSiparisGirisi
 
             List<string> barkods = customerList.Select(x => x.Barkod).ToList();
             string combinedString = "'" + string.Join("','", barkods) + "'";
-            da = new SqlDataAdapter("Select sto_kod,bar_kodu from  stoklar left join BARKOD_TANIMLARI on  bar_stokkodu=sto_kod where bar_master=1 and bar_kodu in (" + combinedString + ") ", baglanti);
+            da = new SqlDataAdapter("Select sto_kod,bar_kodu from  stoklar left join BARKOD_TANIMLARI on  bar_stokkodu=sto_kod where bar_kodu in (" + combinedString + ") ", baglanti);
             DataTable dataTable = new DataTable();
             baglanti.Open();
             da.Fill(dataTable); // object referansi degiskene bise atilmamissa gelir. = new yapilmamis yani. koda tek atmisim mk xd
