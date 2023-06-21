@@ -1,10 +1,8 @@
-using Microsoft.VisualBasic;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+using DataTable = System.Data.DataTable;
+
 
 namespace OtomatikSiparisGirisi
 {
@@ -56,7 +54,7 @@ namespace OtomatikSiparisGirisi
                 OleDbDataAdapter da = new OleDbDataAdapter(komut);
 
                 //Grid'imiz için bir DataTable oluþturuyoruz.
-                DataTable data = new DataTable();
+                System.Data.DataTable data = new System.Data.DataTable();
 
                 //DataAdapter'da ki verileri data adýndaki DataTable'a dolduruyoruz.
                 da.Fill(data);
@@ -168,7 +166,7 @@ namespace OtomatikSiparisGirisi
                         command.Parameters.AddWithValue("@sip_belgeno", item.SiparisNo);
                         command.Parameters.AddWithValue("@sip_belge_tarih", DateTime.Now.Date);
                         command.Parameters.AddWithValue("@sip_satici_kod", textBox3.Text);
-                        command.Parameters.AddWithValue("@sip_musteri_kod", "335.04");
+                        command.Parameters.AddWithValue("@sip_musteri_kod", textBox9.Text);
                         command.Parameters.AddWithValue("@sip_stok_kod", item.StokKod);
                         command.Parameters.AddWithValue("@sip_b_fiyat", item.TeklifTutari.ToFloat());
                         command.Parameters.AddWithValue("@sip_miktar", item.Miktar.ToFloat());
@@ -373,7 +371,7 @@ namespace OtomatikSiparisGirisi
             List<string> barkods = customerList.Select(x => x.Barkod).ToList();
             string combinedString = "'" + string.Join("','", barkods) + "'";
             da = new SqlDataAdapter("Select sto_kod,bar_kodu from  stoklar left join BARKOD_TANIMLARI on  bar_stokkodu=sto_kod where bar_kodu in (" + combinedString + ") ", baglanti);
-            DataTable dataTable = new DataTable();
+            System.Data.DataTable dataTable = new System.Data.DataTable();
             baglanti.Open();
             da.Fill(dataTable); // object referansi degiskene bise atilmamissa gelir. = new yapilmamis yani. koda tek atmisim mk xd
             baglanti.Close();
@@ -418,7 +416,7 @@ namespace OtomatikSiparisGirisi
                 OleDbDataAdapter da = new OleDbDataAdapter(komut);
 
                 //Grid'imiz için bir DataTable oluþturuyoruz.
-                DataTable data = new DataTable();
+                System.Data.DataTable data = new System.Data.DataTable();
 
                 //DataAdapter'da ki verileri data adýndaki DataTable'a dolduruyoruz.
                 da.Fill(data);
@@ -435,6 +433,58 @@ namespace OtomatikSiparisGirisi
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
 
+            // DataGridView'deki verileri bir DataTable'a kopyalayýn
+            DataTable dt = new DataTable();
+
+            // Sütunlarý ekle (tablo baþlýklarýný da dahil etmek için)
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                dt.Columns.Add(column.HeaderText, column.ValueType);
+            }
+
+            // Satýrlarý ekle
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataRow dataRow = dt.NewRow();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    dataRow[cell.ColumnIndex] = cell.Value;
+                }
+                dt.Rows.Add(dataRow);
+            }
+
+            // Excel uygulamasýný baþlatýn
+            Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+            excelApp.Visible = true;
+
+            // Yeni bir Excel çalýþma kitabý oluþturun
+            Microsoft.Office.Interop.Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets[1];
+
+            // DataTable'ý Excel çalýþma sayfasýna aktarýn (tablo baþlýklarýný da dahil etmek için)
+            int rowIndex = 1;
+
+            // Baþlýklarý yaz
+            for (int j = 0; j < dt.Columns.Count; j++)
+            {
+                worksheet.Cells[1, j + 1] = dt.Columns[j].ColumnName;
+                worksheet.Cells[1, j + 1].Font.Bold = true;
+            }
+
+            // Verileri yaz
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                rowIndex++;
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    worksheet.Cells[rowIndex, j + 1] = dt.Rows[i][j].ToString();
+                }
+            }
+
+        }
     }
+    
 }

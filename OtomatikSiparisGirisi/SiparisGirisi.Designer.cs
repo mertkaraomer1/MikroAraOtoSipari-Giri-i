@@ -49,6 +49,9 @@
             textBox7 = new TextBox();
             label9 = new Label();
             textBox8 = new TextBox();
+            label3 = new Label();
+            textBox9 = new TextBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -234,11 +237,40 @@
             textBox8.Size = new Size(124, 25);
             textBox8.TabIndex = 29;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(453, 90);
+            label3.Name = "label3";
+            label3.Size = new Size(99, 17);
+            label3.TabIndex = 32;
+            label3.Text = "Cari Numarası:\r\n";
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(566, 87);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(124, 25);
+            textBox9.TabIndex = 31;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(480, 157);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 33;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 985);
+            Controls.Add(button3);
+            Controls.Add(label3);
+            Controls.Add(textBox9);
             Controls.Add(label9);
             Controls.Add(textBox8);
             Controls.Add(label8);
@@ -294,5 +326,8 @@
         private TextBox textBox7;
         private Label label9;
         private TextBox textBox8;
+        private Label label3;
+        private TextBox textBox9;
+        private Button button3;
     }
 }
