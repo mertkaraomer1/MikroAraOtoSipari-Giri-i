@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SiparisGirisi));
             button1 = new Button();
             dataGridView1 = new DataGridView();
             button2 = new Button();
@@ -293,6 +294,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SiparisGirisi";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
