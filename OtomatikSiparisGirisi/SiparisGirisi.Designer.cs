@@ -65,6 +65,8 @@
             button1.Text = "Excel Tablosunu Aktar";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            button1.MouseEnter += button1_MouseEnter;
+            button1.MouseLeave += button1_MouseLeave;
             // 
             // dataGridView1
             // 
@@ -87,6 +89,8 @@
             button2.Text = "Veritabanına Siparişleri İşle";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            button2.MouseEnter += button2_MouseEnter;
+            button2.MouseLeave += button2_MouseLeave;
             // 
             // textBox1
             // 
@@ -114,6 +118,8 @@
             button4.Text = "Barkoda Göre Stok Kodu";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
+            button4.MouseEnter += button4_MouseEnter;
+            button4.MouseLeave += button4_MouseLeave;
             // 
             // label4
             // 
@@ -205,6 +211,8 @@
             button5.Text = "Excel Tablosunu Aktar";
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
+            button5.MouseEnter += button5_MouseEnter;
+            button5.MouseLeave += button5_MouseLeave;
             // 
             // label8
             // 
@@ -263,11 +271,14 @@
             button3.Text = "EXCELE AKTAR";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
+            button3.MouseEnter += button3_MouseEnter;
+            button3.MouseLeave += button3_MouseLeave;
             // 
             // SiparisGirisi
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DodgerBlue;
             ClientSize = new Size(1924, 985);
             Controls.Add(button3);
             Controls.Add(label3);
