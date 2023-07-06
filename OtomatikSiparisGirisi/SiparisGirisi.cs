@@ -160,7 +160,7 @@ namespace OtomatikSiparisGirisi
                         command.Parameters.AddWithValue("@sip_teslim_tarih", DateTime.Now.Date);
                         command.Parameters.AddWithValue("@sip_tip", 0);
                         command.Parameters.AddWithValue("@sip_cins", 0);
-                        command.Parameters.AddWithValue("@sip_evrakno_seri", textBox8.Text);
+                        command.Parameters.AddWithValue("@sip_evrakno_seri", item.IKN);
                         command.Parameters.AddWithValue("@sip_evrakno_sira", item.sip_evrakno_sira);
                         command.Parameters.AddWithValue("@sip_satirno", item.sip_satirno);
                         command.Parameters.AddWithValue("@sip_belgeno", item.SiparisNo);
@@ -362,7 +362,7 @@ namespace OtomatikSiparisGirisi
                 if (index != -1)
                 {
                     string sonrasý = item.IKN.Substring(index + 1); // '/' karakterinden sonrasýný alýr
-                    item.IKN = sonrasý + "-K1";
+                    item.IKN = sonrasý + textBox8.Text;
                 }
 
             }
