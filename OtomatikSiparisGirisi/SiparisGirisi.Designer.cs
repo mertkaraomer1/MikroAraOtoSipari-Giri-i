@@ -136,6 +136,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(51, 25);
             textBox3.TabIndex = 13;
+            textBox3.Text = "PER27";
             // 
             // label6
             // 
@@ -159,6 +160,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(53, 25);
             textBox2.TabIndex = 19;
+            textBox2.Text = "28";
             // 
             // label2
             // 
@@ -184,6 +186,7 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(53, 25);
             textBox5.TabIndex = 21;
+            textBox5.Text = "28";
             // 
             // label5
             // 
@@ -229,6 +232,7 @@
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(51, 25);
             textBox7.TabIndex = 27;
+            textBox7.Text = "1";
             // 
             // label9
             // 
@@ -243,7 +247,7 @@
             // 
             textBox8.Location = new Point(760, 47);
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(124, 25);
+            textBox8.Size = new Size(48, 25);
             textBox8.TabIndex = 29;
             // 
             // label3
@@ -261,6 +265,7 @@
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(124, 25);
             textBox9.TabIndex = 31;
+            textBox9.Text = "120.02.001";
             // 
             // button3
             // 
